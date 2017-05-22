@@ -1,0 +1,23 @@
+.aside-title { 
+	width: 100%;
+	margin-top: 0;
+	color: #fff; 
+	padding: 4% 0 4% 4%;
+	background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 12%, rgba(0,0,0,0.84) 25%, rgba(0,0,0,0.84) 26%, rgba(0,0,0,0.75) 39%, rgba(0,0,0,0.69) 50%, rgba(0,0,0,0.68) 51%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.52) 76%, rgba(0,0,0,0.51) 78%, rgba(0,0,0,0.43) 91%, rgba(0,0,0,0.37) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+}
+
+#aside-container { margin-top: 9.5%; background: rgba(0, 0, 0, .1); box-shadow: 0px 0px 5px rgb(51, 51, 51);
+	box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7); min-height: 475px; margin-bottom: 7%;}
+
+#category { background: rgba(0, 0, 0, 0); border: none; padding: 0 6% 3% 8%;}
+
+.announces-container {width: 100%; margin-bottom: 9.5%; }
+
+.announces-container img { max-height: 341.5px; width: 100%; padding: 1px 0 1px 0;}
+
+.lastest img {min-height: 180px; width: 100%; padding: 1px 1px 1px 1px;}
+
+#news {margin-top: 10%; margin-bottom: 7%;}
+
+.info-news {color: #0c1a1e; font-size: 11pt;}

@@ -1,0 +1,26 @@
+{
+  "name": "proyecto_jeison_andres_sergio",
+  "version": "1.0.0",
+  "description": "cupones y promociones, página web",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-session": "^1.15.3",
+    "install": "^0.9.6",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.18.1",
+    "mongoose": "^4.9.9",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeison Saborío R && Andres Pérez B && Sergio Araya Z",
+  "license": "ISC"
+}
