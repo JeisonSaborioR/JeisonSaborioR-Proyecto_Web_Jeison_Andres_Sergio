@@ -21,7 +21,6 @@
 
 </head>
 <body id="body">
-
 	<header>
 		<div id="navbar">
 			<nav class="navbar navbar-static-top navbar-inverse">
@@ -42,47 +41,46 @@
 			        		</div>
 		        		</form>
     				</div>
-
     				<ul class="nav navbar-nav navbar-right" style="margin-right: 0.5%;">
 				        <li><a href="#">Contáctenos</a></li>
 				        <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
 							<ul id="login-dp" class="dropdown-menu">
 								<li>
-									 <div class="row">
-											<div class="col-md-12">
-												<strong>Login via</strong>
-												<div class="social-buttons">
-													<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-													<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-												</div>
-				                             
-												 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-														<div class="form-group">
-															 <label class="sr-only" for="exampleInputEmail2">Correo</label>
-															 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Correo" required>
-														</div>
-														<div class="form-group">
-															 <label class="sr-only" for="exampleInputPassword2">Contraseña</label>
-															 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Contraseña" required>
-				                                             <div class="help-block text-right"><a href="">¿Olvidates tu contraseña?</a></div>
-														</div>
-														<div class="form-group">
-															 <button type="submit" class="btn btn-primary btn-block" style="background: rgba(26, 203, 17, .8); border-color: #1ACB11;">Iniciar sesión</button>
-														</div>
-														<div class="checkbox">
-															 <label>
-															 <input type="checkbox"> Recordar mis datos														 </label>
-														</div>
-												 </form>
+									<div class="row">
+										<div class="col-md-12">
+											<strong>Login via</strong>
+											<div class="social-buttons">
+												<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+												<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
 											</div>
-											<div class="bottom text-center">
-												¿Nuevo aquí? <a href="#"><b>Regístrate</b></a>
-											</div>
-									 </div>
+			                             
+											 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+													<div class="form-group">
+														 <label class="sr-only" for="emailLogin">Correo</label>
+														 <input type="email" class="form-control" id="emailLogin" placeholder="Correo" required>
+													</div>
+													<div class="form-group">
+														 <label class="sr-only" for="passwordLogin">Contraseña</label>
+														 <input type="password" class="form-control" id="passwordLogin" placeholder="Contraseña" required>
+			                                             <div class="help-block text-right"><a href="">¿Olvidates tu contraseña?</a></div>
+													</div>
+													<div class="form-group">
+														 <button type="submit" class="btn btn-primary btn-block" style="background: rgba(26, 203, 17, .8); border-color: #1ACB11;">Iniciar sesión</button>
+													</div>
+													<div class="checkbox">
+														 <label>
+														 <input type="checkbox"> Recordar mis datos														 </label>
+													</div>
+											 </form>
+										</div>
+										<div class="bottom text-center">
+											¿Nuevo aquí? <a data-toggle="modal" data-target="#register-content" href="#"><b>Regístrate</b></a>
+								 		</div>
+									</div>
 								</li>
 							</ul>
-				        </li>
+				        </li>	
      				 </ul>
 				</div>
 			</nav>
@@ -90,6 +88,43 @@
 	</header>
 
 	<div class="container">
+
+			<!-- model para el registro de usuarios en el sistema -->
+			<div class="modal fade" id="register-content" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+				        <div class="modal-header" style="background: rgba(75, 211, 54, .9);">
+					     	<button type="button" class="close" data-dismiss="modal">&times;</button>
+					       	<h3 class="modal-title">Regístrate</h3>
+				        </div>
+				        <div class="modal-body" style="background: rgba(153, 157, 152, .1);">
+				        	<div class="row">
+				        		<div class="form-group col-xs-6">
+									<label class="sr-only" for="nameRegister">Nombre</label><span></span>
+									<input type="name" class="form-control" id="nameRegister" placeholder="Nombre" required>			
+								</div>
+								<div class="for col-xs-6">
+									<label class="sr-only" for="lastNameRegister">Apellido</label>
+									<input type="lastName" class="form-control" id="lastNameRegister" placeholder="Apellidos" required>
+								</div>
+				        		<div class="form-group col-xs-12">
+									 <label class="sr-only" for="emailRegister">Correo</label>
+									 <input type="email" class="form-control" id="emailRegister" placeholder="Correo" required>
+								</div>
+								<div class="form-group col-xs-12">
+									 <label class="sr-only" for="passwordRegister">Contraseña</label>
+									 <input type="password" class="form-control" id="passwordRegister" placeholder="Contraseña" required>
+								</div>
+				        	</div>
+				        </div>
+				        <div class="modal-footer" style="background: rgba(153, 157, 152, .6);">
+				        	<button type="submit" class="btn btn-success">Registar</button>
+				          	<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				        </div>      
+				   	</div>
+				</div>											
+			</div>
+
 			<div class="row" style="margin-top: 7%;"><!--content row-->
 			<div class="col col-md-9">
 				<div id="first-slider">
@@ -328,34 +363,6 @@
 					</div>	
 				</div>
 			</div>
-
-		<!--<div class="col-6 col-md-3">
-			<aside class="visible-md visible-lg container-fluid">
-					<h4 id="titleTopCupones"><strong>Top cupones más buscados</strong></h4>
-					<ul class="small-event-list">
-						<li>
-							<img src="imagenes/vista_ajust_1_6.jpg" alt="¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500">
-
-							<div class="info">
-								<h2 class="title">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</h2>
-								<p class="desc">Fortuna</p>
-							</div>
-						</li>	
-					</ul>
-					<ul class="small-event-list">
-						<li>
-							<img src="imagenes/vista_ajust_1_6.jpg" alt="¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500">
-
-							<div class="info">
-								<h2 class="title">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</h2>
-								<p class="desc">Fortuna</p>
-							</div>
-							
-						</li>
-					</ul>	
-			</aside>
-		</div>-->
-
 		</div><!--end content row-->
 	</div>
 
