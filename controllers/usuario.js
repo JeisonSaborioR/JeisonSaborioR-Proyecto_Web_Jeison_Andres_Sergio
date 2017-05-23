@@ -54,21 +54,6 @@ function signIn (req,res){
 }
 
 
-function signUp(req, res) {
-
-	const usuario = new Usuario({
-
-		correo: req.body.correo,
-		nombre: req.body.nombre,
-		password: req.body.password
-	})
-	usuario.save((err) =>{
-		if (err) res.status(500).send({message:'Error al crear el usuario'})
-
-		return res.status(200).send({token:servicios.crearToken(usuario)})
-	})
-}
-
 
 function signUpFacebook(correo, nombre, id) {
 	const usuario = new Usuario({
@@ -78,15 +63,15 @@ function signUpFacebook(correo, nombre, id) {
 		password: id
 	})
 
-	usuario.save(function(error){
-		if (error) {
-			console.log("Error al crear el usuario")
-			return
-		}
-		servicios.crearToken(usuario)
+	usuario.save((err) =>{
+		console.log()
+		if (err) res.status(500).send({message:'Error al crear el usuario'})
+
+		return res.status(200).send({token:servicios.crearToken(usuario)})
 	})
 
 }
+
 
 
 function signInFacebook(correo, nombre, id){
@@ -101,7 +86,11 @@ function signInFacebook(correo, nombre, id){
 			signUpFacebook(correo, nombre, id)
 		}else{
 
-			servicios.crearToken(usuario)
+			req.usuario = usuario
+			res.status(200).send({
+				message:'Te has logueado correctamente',
+				token: servicios.crearToken(usuario)
+			})
 		}
 		
 		

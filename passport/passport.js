@@ -1,3 +1,4 @@
+
 var FacebookStrategy = require('passport-facebook').Strategy
 var Usuario = require('../modelos/usuario')
 var session = require('express-session')
