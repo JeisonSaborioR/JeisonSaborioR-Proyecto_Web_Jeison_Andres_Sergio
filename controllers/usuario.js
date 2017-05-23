@@ -63,15 +63,16 @@ function signUpFacebook(correo, nombre, id) {
 		password: id
 	})
 
-	usuario.save((err) =>{
-		console.log()
-		if (err) res.status(500).send({message:'Error al crear el usuario'})
-
-		return res.status(200).send({token:servicios.crearToken(usuario)})
+	usuario.save(function(error){
+		if (error) {
+			console.log("Error al crear el usuario")
+			return
+		}
+		console.log('Usuario creado correctamente')
+		servicios.crearToken(usuario)
 	})
 
 }
-
 
 
 function signInFacebook(correo, nombre, id){
@@ -86,11 +87,8 @@ function signInFacebook(correo, nombre, id){
 			signUpFacebook(correo, nombre, id)
 		}else{
 
-			req.usuario = usuario
-			res.status(200).send({
-				message:'Te has logueado correctamente',
-				token: servicios.crearToken(usuario)
-			})
+			console.log('Te has logueado correctamente')
+			servicios.crearToken(usuario)
 		}
 		
 		
