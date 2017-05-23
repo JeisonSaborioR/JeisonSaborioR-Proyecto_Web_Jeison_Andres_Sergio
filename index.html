@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="mainApplication">
 <head>
 	<title>Cupones y promociones</title>
-
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="angular/mainCtrl.js"></script>
+	
 	<link rel="stylesheet" type="text/css" href="css/menu.css">
 	<link rel="stylesheet" type="text/css" href="css/aside.css">
 	<!--<link rel="stylesheet" type="text/css" href="css/listing.css">-->
@@ -20,7 +23,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 </head>
-<body id="body">
+<body id="body" ng-controller="mainCtrl">
 
 	<header>
 		<div id="navbar">
@@ -159,6 +162,7 @@
 				        </a>
 				    </div>
 				</div>
+				
 				<div class="row">
 					<div class="col-md-12">
 						<h3 class="popular-title">Cupones más buscados</h3>
@@ -167,62 +171,20 @@
 				<div class="row">
 					<div class="col" style="height: 15px;"></div>
 				</div>
-				<div class="row">
-					<div class="col col-md-3">
+				<div class="row" >
+					<div class="col col-md-3" ng-repeat="post in posts">
 						<div class="aditional-info">
-							<ul class="small-event-list">
+							<ul class="small-event-list" >
 								<li>
-									<img src="imagenes/vista_ajust_1_6.jpg">
+									<img ng-src="{{post.imagen}}">
 
 									<div class="info">
-										<h2 class="title">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</h2>
-										<p class="desc">Fortuna</p>
+										<h2 class="title">{{post.titulo}}</h2>
+										<p class="desc">{{post.precio}}</p>
 									</div>
 								</li>	
 							</ul>
 						</div>
-					</div>
-					<div class="col col-md-3">
-						<div class="aditional-info">
-							<ul class="small-event-list">
-								<li>
-									<img src="imagenes/vista_ajust_1_6.jpg">
-
-									<div class="info">
-										<h2 class="title">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</h2>
-										<p class="desc">Fortuna</p>
-									</div>
-								</li>	
-							</ul>
-						</div>
-					</div>
-					<div class="col col-md-3">
-						<div class="aditional-info">
-							<ul class="small-event-list">
-								<li>
-									<img src="imagenes/vista_ajust_1_6.jpg">
-
-									<div class="info">
-										<h2 class="title">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</h2>
-										<p class="desc">Fortuna</p>
-									</div>
-								</li>	
-							</ul>
-						</div>
-					</div>
-					<div class="col col-md-3">
-						<div class="aditional-info">
-							<ul class="small-event-list">
-								<li>
-									<img src="imagenes/vista_ajust_1_6.jpg">
-
-									<div class="info">
-										<h2 class="title">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</h2>
-										<p class="desc">Fortuna</p>
-									</div>
-								</li>	
-							</ul>
-						</div>					
 					</div>
 				</div>
 				<div class="row">

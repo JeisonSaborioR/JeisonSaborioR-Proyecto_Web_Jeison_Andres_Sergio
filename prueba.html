@@ -6,10 +6,15 @@
 	
 	<script src="angular/mainCtrl.js"></script>
 </head>
-<body>
-	<div ng-controller="mainCtrl">
-		{{test}}
-	</div>|
+<body ng-controller="mainCtrl">
+
+	<ul>
+		
+		<li ng-repeat="post in posts">
+			<h2>{{post.titulo}}</h2>
+			<p>{{post.precio}}</p>
+		</li>
+	</ul>
 
 
 
