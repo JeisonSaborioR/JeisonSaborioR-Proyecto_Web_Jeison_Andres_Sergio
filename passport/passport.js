@@ -4,6 +4,8 @@ var Usuario = require('../modelos/usuario')
 var session = require('express-session')
 var usuarioCtrl = require('../controllers/usuario')
 
+var jwt = require('jsonwebtoken')
+var config = require('../config')
 module.exports = function(app, passport) {
 	app.use(passport.initialize());
 	app.use(passport.session());
@@ -12,7 +14,9 @@ module.exports = function(app, passport) {
 
 
 	passport.serializeUser(function(user, done) {
-	  done(null, user.id);
+		token = jwt.sign({username:user.username, email:user.email}, config.TOKEN_SECRETO, {expiresIn:'24h'})
+		
+		done(null, user.id);
 	});
 
 	passport.deserializeUser(function(id, done) {
@@ -32,13 +36,17 @@ module.exports = function(app, passport) {
 	  	//console.log(profile)
 	 
 	  	usuarioCtrl.signInFacebook(profile._json.email, profile._json.name,profile._json.id)
+
 	   	//app.get('/', usuarioCtrl.signIn)
 	    done(null, profile)
 	  }
 	));
 
 
-	app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/',failureRedirect: '/login' }));
+	app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/login' }), function (req, res) {
+	
+		res.redirect('/userView/' + token)
+	});
 	                                   
 	app.get('/auth/facebook',passport.authenticate('facebook', { scope: 'email' }));
 

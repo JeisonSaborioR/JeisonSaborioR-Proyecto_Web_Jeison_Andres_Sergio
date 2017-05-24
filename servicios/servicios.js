@@ -2,6 +2,7 @@ var jwt = require('jwt-simple')
 var moment = require('moment')
 var config = require('../config')
 
+
 function crearToken(user) {
 	const cargar = {
 		sub: user.id,
@@ -9,6 +10,7 @@ function crearToken(user) {
 		exp: moment().add(14, 'days').unix(),
 	}
 	jwt.encode(cargar, config.TOKEN_SECRETO)
+
 }
 
 

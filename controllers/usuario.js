@@ -68,6 +68,7 @@ function signUpFacebook(correo, nombre, id) {
 			console.log("Error al crear el usuario")
 			return
 		}
+	
 		console.log('Usuario creado correctamente')
 		servicios.crearToken(usuario)
 	})
@@ -77,7 +78,6 @@ function signUpFacebook(correo, nombre, id) {
 
 function signInFacebook(correo, nombre, id){
 	Usuario.find({correo: correo}, (err,usuario) => {
-		console.log(usuario)
 		if(err) {
 			console.log("Error al loguear")
 			return
@@ -88,6 +88,8 @@ function signInFacebook(correo, nombre, id){
 		}else{
 
 			console.log('Te has logueado correctamente')
+		
+	
 			servicios.crearToken(usuario)
 		}
 		
