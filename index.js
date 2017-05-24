@@ -12,7 +12,7 @@ mongoose.connect(config.db, (err,res) => {
 	console.log('Conexión establecida')
 	
 	//Load servidor en puerto 8080
-	app.listen(8080, function(){
+	app.listen(config.port, function(){
 		console.log("Running at Port 100")
 	})
 
