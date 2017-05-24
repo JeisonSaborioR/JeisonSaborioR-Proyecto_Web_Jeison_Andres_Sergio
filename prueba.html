@@ -11,6 +11,8 @@
 	<ul>
 		
 		<li ng-repeat="post in posts">
+			<img ng-src="post.imagen">
+			<img ng-src="{{post.imagen}}">
 			<h2>{{post.titulo}}</h2>
 			<p>{{post.precio}}</p>
 		</li>
