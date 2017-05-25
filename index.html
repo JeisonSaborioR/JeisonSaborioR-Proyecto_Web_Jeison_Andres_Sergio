@@ -213,19 +213,45 @@
 					<div class="col col-md-3"  ng-repeat="post in posts" class="_blank">
 						<div class="aditional-info">
 							<ul class="small-event-list">
-								<li>
-							
+								<li> 
 									<img ng-src="{{post.imagen}}">
 									<div class="info">
-
-										<h2 class="title">{{post.titulo}}</h2>
-										<p class="desc">{{post.precio}}</p>
+										<div style="min-height: 76px;">
+											<a class="title-content" href="#" data-toggle="modal" data-target="#item-info">{{post.titulo}}</a>
+										</div>
+										<p class="price">{{post.precio}}</p>
+										<p class="date">Finaliza el {{post.fechaVencimiento}}</p>
+										<p></p>
 									</div>
+
+									<!-- model para ver los detalles del oferta -->
+									<div class="modal fade" id="item-info" role="dialog">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-body">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<div class="row" style="margin: 2% .5% 2% .5%;">
+														<div class="col col-md-6">
+															<div>
+																<img src="{{post.imagen}}" style="width: 100%;">
+															</div>
+														</div>
+														<div class="col col-md-6">
+															<h4 class="modal-title">{{post.titulo}}</h4>
+															<hr>
+															<div class="row">
+																<div>hola</div>
+															</div>
+														</div>
+													</div>
+												</div>
+										   	</div>
+										</div>											
+									</div>									
 								</li>	
 							</ul>
 						</div>
 					</div>
-					
 				</div>
 				<div class="row">
 					<div class="col-md-12">
@@ -243,7 +269,7 @@
 									<img src="imagenes/vista_ajust_1_6.jpg">
 
 									<div class="info">
-										<h2 class="title">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</h2>
+										<a class="title-content">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</a>
 										<p class="desc">Fortuna</p>
 									</div>
 								</li>	
@@ -257,7 +283,7 @@
 									<img src="imagenes/vista_ajust_1_6.jpg">
 
 									<div class="info">
-										<h2 class="title">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</h2>
+										<a class="title-content">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</a>
 										<p class="desc">Fortuna</p>
 									</div>
 								</li>	
@@ -271,7 +297,7 @@
 									<img src="imagenes/vista_ajust_1_6.jpg">
 
 									<div class="info">
-										<h2 class="title">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</h2>
+										<a class="title-content">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</a>
 										<p class="desc">Fortuna</p>
 									</div>
 								</li>	
@@ -285,7 +311,7 @@
 									<img src="imagenes/vista_ajust_1_6.jpg">
 
 									<div class="info">
-										<h2 class="title">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</h2>
+										<a class="title-content">¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500</a>
 										<p class="desc">Fortuna</p>
 									</div>
 								</li>	

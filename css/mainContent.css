@@ -9,7 +9,6 @@
 	.event-list > li > img  {
 		display: inline-block;
 	}
-	.event-list > li > time,
 	.event-list > li > img {
 		width: 120px;
 		float: left;
@@ -18,7 +17,6 @@
 		background-color: rgb(245, 245, 245);
 		overflow: hidden;
 	}
-	.event-list > li > time,
 	.event-list > li > img {
 		width: 120px;
 		height: 120px;
@@ -28,11 +26,11 @@
 	.event-list > li > .info {
 		position: relative;
 		height: 120px;
-		text-align: left;
 		padding-right: 40px;
 	}	
-	.event-list > li > .info > .title, 
-	.event-list > li > .info > .desc {
+	.event-list > li > .info > .title-content , 
+	.event-list > li > .info > .price,
+	.event-list > li > .info > .date{
 		padding: 0px 10px;
 	}
 	.event-list > li > .info > ul {
@@ -56,10 +54,6 @@
 	margin: 0px 0px 10px;
 }
 
-.small-event-list > li > time > span {
-	display: none;
-}
-
 .small-event-list > li > img {
 	width: 100%;
 	height: 50%;
@@ -67,20 +61,31 @@
 }
 .small-event-list > li > .info {
 	padding: 5px 5px 5px 5px;
-	text-align: center;
-	min-height: 100px;
+	margin: 0 auto;
+	text-align: left;
+	min-height: 140px;
 }
-.small-event-list > li > .info > .title {
-	font-size: 12pt;
+.small-event-list > li > .info > .title-content {
+	font-size: 11pt;
 	font-weight: 600;
 	margin: 0px;
+	text-align: left;
 	font-family: 'Dosis', sans-serif;
 }
-.small-event-list > li > .info > .desc {
+.small-event-list > li > .info > .price {
 	font-size: 10pt;
 	font-weight: 300;
-	margin: 0px;
+	margin: 0;
+	text-align: center;
 }
+
+.small-event-list > li > .info > .date {
+	font-size: 10pt;
+	font-weight: 300;
+	margin-top: 1%;
+	text-align: center;
+}
+
 .small-event-list > li > .info > ul {
 	display: table;
 	list-style: none;
