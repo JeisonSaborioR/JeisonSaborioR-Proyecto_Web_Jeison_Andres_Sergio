@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
 	<link rel="stylesheet" type="text/css" href="css/slider.css">
 	<link rel="stylesheet" type="text/css" href="css/mainContent.css">
+	<link rel="stylesheet" type="text/css" href="css/modalOffers.css">
 
 
 
@@ -101,13 +102,13 @@
 			<!-- model para el registro de usuarios en el sistema -->
 			<div class="modal fade" id="register-content" role="dialog">
 				<div class="modal-dialog">
-					<div class="modal-content">
-				        <div class="modal-header" style="background: rgba(75, 211, 54, .9);">
+					<div>
+				        <div class="modal-header" style="background: rgba(54,235,60, .9);">
 					     	<button type="button" class="close" data-dismiss="modal">&times;</button>
 					       	<h3 class="modal-title">Regístrate</h3>
 				        </div>
-				        <div class="modal-body" style="background: rgba(153, 157, 152, .1);">
-				        	<div class="row">
+				        <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
+				        	<div class="row" style="margin: 0 4% 0 4%;">
 				        		<div class="form-group col-xs-6">
 									<label class="sr-only" for="nameRegister">Nombre</label><span></span>
 									<input type="name" class="form-control" id="nameRegister" placeholder="Nombre" required>			
@@ -130,7 +131,7 @@
 								</div>
 				        	</div>
 				        </div>
-				        <div class="modal-footer" style="background: rgba(153, 157, 152, .6);">
+				        <div class="modal-footer" style="background: rgba(153, 157, 152, .8);">
 				        	<div class="form-group">
 				        		<input type="submit" class="btn btn-success" value="Registrar" id="submit" name="submit" style="min-width: 80px;"></input>
 				          		<button type="button" class="btn btn-danger" data-dismiss="modal" style="min-width: 80px;">Close</button>
@@ -227,27 +228,49 @@
 									<!-- model para ver los detalles del oferta -->
 									<div class="modal fade" id="item-info" role="dialog">
 										<div class="modal-dialog modal-lg">
-											<div class="modal-content">
-												<div class="modal-body">
+											<div class="modal-offer">
+												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<div class="row" style="margin: 2% .5% 2% .5%;">
-														<div class="col col-md-6">
-															<div>
-																<img src="{{post.imagen}}" style="width: 100%;">
-															</div>
-														</div>
-														<div class="col col-md-6">
+													<div class="row">
+														<div class="col col-md-12">
 															<h4 class="modal-title">{{post.titulo}}</h4>
-															<hr>
-															<div class="row">
-																<div>hola</div>
-															</div>
 														</div>
 													</div>
 												</div>
-										   	</div>
-										</div>											
-									</div>									
+												<div class="modal-body" id="offer">								
+													<div class="row">
+														<div class="col col-md-8">
+															<div>
+																<img src="{{post.imagen}}">
+															</div>
+														</div>
+														<div class="visible-md visible-lg col col-md-4">
+															<div class="offer-info">
+																<br>
+																<div>
+																	<h3 class="new-price">Precio Actual</h3>
+																	<h4 class="old-price">Precio Anterior</h4>
+																	<hr style="color: #000;">
+																</div>
+																<br>
+																<div class="offer-options">
+																	<button class="buy" type="button" data-dismiss="modal" style="min-width: 160px; margin-bottom: 8%;">Comprar</button>
+																	<button  class="gift" type="button" data-dismiss="modal" style="min-width: 160px;">Regalar a un amigo</button>
+																</div>
+																<br>
+																<hr style="color: #000;">
+																<div>
+																	<h3 class="times-sold">Vendidos</h3>
+																	<h4 class="offer-end">La oferta termina {{post.fechaVencimiento}}</h4>
+																</div>
+																<br>
+															</div>
+														</div>
+													</div>
+										   		</div>
+											</div>											
+										</div>
+									</div>						
 								</li>	
 							</ul>
 						</div>
