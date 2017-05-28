@@ -16,6 +16,7 @@ var autentificacion = require('./middlewares/autentificacion')
 app.use('/css', express.static(__dirname + '/css'))
 app.use('/angular', express.static(__dirname + '/angular'))
 app.use('/imagenes', express.static(__dirname + '/imagenes'))
+app.use('/views', express.static(__dirname + '/views'))
 
 
 
@@ -30,13 +31,12 @@ app.get('/private', autentificacion, (req,res) => {
 	res.status(200).send({message: 'Tienes acceso'})
 })
 
+
+
 //Cargar el indice al servidor 
-app.get('', function (req, res) {
-	res.sendFile('index.html', {root: path.join(__dirname, '')})
+app.get('*', function (req, res) {
+	res.sendFile('/views/index.html', {root: path.join(__dirname, '')})
 })
-
-
-
 
 
 module.exports = app
