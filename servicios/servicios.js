@@ -37,6 +37,11 @@ function decodificarToken(token) {
 	return decoded
 }
 
+function authFacebook(token){
+    
+    
+}
+
 module.exports = {
 	crearToken,
 	decodificarToken
