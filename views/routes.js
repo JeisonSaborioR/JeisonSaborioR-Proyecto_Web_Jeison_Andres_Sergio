@@ -15,7 +15,16 @@ app.config(function($routeProvider, $locationProvider){
 	.when('/contactenos', {
 		templateUrl:'views/pages/contactenos.html'
 	})
-
+    
+    .when('/facebook/:token', {
+		templateUrl:'views/pages/contactenos.html',
+        controller: 'facebookCtrl',
+        controllerAs: 'facebook'
+        
+	})
+    .when('/google/:token', {
+        templateUrl:'views/pages/contactenos.html'
+    })
 	.otherwise({redirectTo:'/'});
     
     $locationProvider.html5Mode({
@@ -38,4 +47,14 @@ app.controller('mainCtrl', function($scope, $http) {
 		$scope.posts = data.data.titicupones;
 
 	});
+});
+
+this.facebook = function(){
+    console.log('test');
+}
+
+app.controller('facebookCtrl', function($routeParams, Auth, $location) {
+    
+    Auth.facebook(token);
+	$location.path('/');
 });

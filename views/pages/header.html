@@ -58,16 +58,23 @@
                                         Login via
                                     </strong>
                                     <div class="social-buttons">
+                                         <!--
                                         <a class="btn btn-fb" href="/auth/facebook" target="_blank">
                                             <i class="fa fa-facebook">
                                             </i>
                                             Facebook
                                         </a>
-                                        <a class="btn btn-tw" href="#">
-                                            <i class="fa fa-twitter">
+                                        -->
+                                        <button type="button" class="btn btn-fb"><i class="fa fa-facebook " ng-click="userApp.facebook()"></i> Facebook</button>
+                                        <button type="button" class="btn btn-gplus"><i class="fa fa-google-plus " ></i> Google</button>
+                                        
+                                         <!--
+                                        <a class="btn  btn-gplus" href="/auth/google" target="_blank">
+                                            <i class="fa fa-google-plus">
                                             </i>
-                                            Twitter
+                                            Google
                                         </a>
+                                        -->
                                     </div>
                                     <form accept-charset="UTF-8" action="login" class="form" id="login-nav" method="post" role="form">
                                         <div class="form-group">

@@ -1,11 +1,13 @@
 
 var FacebookStrategy = require('passport-facebook').Strategy
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var Usuario = require('../modelos/usuario')
 var session = require('express-session')
 var usuarioCtrl = require('../controllers/usuario')
 
 var jwt = require('jsonwebtoken')
 var config = require('../config')
+
 module.exports = function(app, passport) {
 	app.use(passport.initialize());
 	app.use(passport.session());
@@ -14,7 +16,7 @@ module.exports = function(app, passport) {
 
 
 	passport.serializeUser(function(user, done) {
-		token = jwt.sign({username:user.username, email:user.email}, config.TOKEN_SECRETO, {expiresIn:'24h'})
+		token = jwt.sign({username:user.username, email:user.email}, config.TOKEN_SECRETO, {expiresIn:'24h'});
 		
 		done(null, user.id);
 	});
@@ -34,18 +36,37 @@ module.exports = function(app, passport) {
 	  },
 	  function(accessToken, refreshToken, profile, done) {
 	  	//console.log(profile)
-	 
+	     
 	  	usuarioCtrl.signInFacebook(profile._json.email, profile._json.name,profile._json.id)
 
 	   	//app.get('/', usuarioCtrl.signIn)
 	    done(null, profile)
 	  }
 	));
+    passport.use(new GoogleStrategy({
+        clientID: '68770455084-5ldgklb9qgdm16vsf891gl7toqgvm641.apps.googleusercontent.com',
+        clientSecret: 'Ot2f5FKA0-BS_SAJD9VvnC7Y',
+        callbackURL: "http://localhost:8080/auth/google/callback"
+      },
+      function(accessToken, refreshToken, profile, done) {
+        console.log(profile)    
+        usuarioCtrl.signInFacebook(profile._json.email, profile._json.name,profile._json.id)
+        done(null, profile)
+      }
+    ));
+    
+    
+    app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
 
-
-	app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/login' }), function (req, res) {
-	
-		res.redirect('/userView/' + token)
+    app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
+        res.redirect('/google/'+token);
+    });
+    
+    
+    
+	app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/login' }), function(req,res) {
+     
+		res.redirect('/facebook/' + token);
 	});
 	                                   
 	app.get('/auth/facebook',passport.authenticate('facebook', { scope: 'email' }));
