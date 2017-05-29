@@ -34,7 +34,7 @@ app.get('/private', autentificacion, (req,res) => {
 
 
 //Cargar el indice al servidor 
-app.get('*', function (req, res) {
+app.get('', function (req, res) {
 	res.sendFile('/views/index.html', {root: path.join(__dirname, '')})
 })
 
