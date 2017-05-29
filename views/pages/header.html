@@ -3,7 +3,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="">
-                    <a href="/">
+                    <a onclick="reload()" href="#">
                         <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 40px;">
                             <strong>
                                 Ofertas JSA
@@ -12,12 +12,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#/">
+                    <a onclick="deleteElement('container-identifier')" href="#">
                         Cupones
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a onclick="deleteElement('container-identifier')" href="#">
                         Promociones
                     </a>
                 </li>
@@ -38,9 +38,7 @@
             </div>
             <ul class="nav navbar-nav navbar-right" style="margin-right: 0.5%;">
                 <li>
-                    <a href="/contactenos">
-                        Contáctenos
-                    </a>
+                    <a data-toggle="modal" data-target="#contact-content" href="#">Contáctenos</a>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -125,4 +123,106 @@
             </ul>
         </div>
     </nav>
+</div>
+
+<!-- model para el registro de usuarios en el sistema -->
+<div class="modal fade" id="register-content" role="dialog">
+    <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
+        <div>
+            <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
+                <button class="close" data-dismiss="modal" style="color: #fff;" type="button">×</button>
+                <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
+                    <strong class="register-title">
+                        Regístrate
+                    </strong>
+                </img>
+            </div>
+            <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
+                <div class="row" style="margin: 0 2% 0 2%;">
+                    <div class="form-group col-xs-6">
+                        <label class="sr-only" for="nameRegister">
+                            Nombre
+                        </label>
+                        <span>
+                        </span>
+                        <input class="form-control" id="nameRegister" placeholder="Nombre" required="" type="name">
+                        </input>
+                    </div>
+                    <div class="for col-xs-6">
+                        <label class="sr-only" for="lastNameRegister">
+                            Apellido
+                        </label>
+                        <input class="form-control" id="lastNameRegister" placeholder="Apellidos" required="" type="lastName">
+                        </input>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label class="sr-only" for="emailRegister">
+                            Correo
+                        </label>
+                        <input class="form-control" id="emailRegister" placeholder="Correo" required="" type="email">
+                        </input>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label class="sr-only" for="passwordRegister">
+                            Contraseña
+                        </label>
+                        <input class="form-control" id="passwordRegister" placeholder="Contraseña" required="" type="password">
+                        </input>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label class="sr-only" for="passwordConfirmRegister">
+                            confirmaciónContraseña
+                        </label>
+                        <input class="form-control" id="passwordConfirmRegister" placeholder="Confirma tu contraseña" required="" type="password">
+                        </input>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
+                <div class="row" style="margin-right: 5%;">
+                    <input class="register-register" id="submit" name="submit" type="submit" value="Registrar"/>
+                    <button class="register-close" data-dismiss="modal" type="button">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- model para el contáctenos -->
+<div class="modal fade" id="contact-content" role="dialog">
+    <div class="modal-dialog modal-lg" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
+        <div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <img src="imagenes/Logo_VerdeClaro.png" alt="" style="width: 65px;"><strong class="register-title">Contáctenos</strong>
+            </div>
+            <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
+                <div class="row">
+                    <div class="col col-md-9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37337.68693835905!2d-84.49637402380196!3d10.37057153305852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x161bb9f05a5c1351!2sInstituto+Tecnol%C3%B3gico+de+Costa+Rica!5e0!3m2!1ses!2scr!4v1496004968367" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <div class="col col-md-3 visible-md visible-lg">
+                        <div class="row" style="margin: 0 auto; height: 450px; display: inline-block; vertical-align: middle; float: none;">
+                            <div>
+                                <h4 class="contact-subtitle">Permítanos resolver sus dudas y consultas o recibir sugerencias o comentarios.</h4>
+                            </div>
+                            <div class="form-group" style="margin-top: 20%;">
+                                <input id="name" name="name" type="text" placeholder="Tu nombre" class="form-control">
+                                <br>
+                                <input id="email" name="email" type="text" placeholder="Tu correo" class="form-control">
+                                <br>
+                                <textarea class="form-control" id="message" name="message" placeholder="Por favor digita quí tu mensaje..." rows="7"></textarea>
+                                <br>
+                                <div style="text-align: right; width: 100%; margin-top: 10%;">
+                                    <button type="submit" class="register-register">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                                          
 </div>
