@@ -110,12 +110,11 @@ color: rgb(30, 30, 30);
 text-decoration: none;
 } 
 
-.small-event-list > li > .info > ul > li:hover {
-	color: rgb(30, 30, 30);
-	background-color: rgb(200, 200, 200);
-}
+.aditional-info:hover { box-shadow: 0px 4px 10px 1px rgba(184, 178, 184, 1); }
 
-.aditional-info:hover { box-shadow: 0px 4px 10px 1px rgba(184,178,184,1);}
+.itemOptions {background: rgba(0, 0, 0, .6); display: none; width: 86.4%;}
+
+.aditional-info:hover .itemOptions { display: inherit; position: absolute; top: 45%;}
 
 .popular-title { 
 	font-size: 16pt; 
