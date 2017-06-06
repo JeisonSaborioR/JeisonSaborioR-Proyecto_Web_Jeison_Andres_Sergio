@@ -91,4 +91,6 @@ text-decoration: none;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
 }
 
+.addItem { margin-left: 69%; }
+
 /*.pagination > li > a, .pagination > li >span { border-radius: 50%; margin: 0 10px; font-size: 12pt; }*/
