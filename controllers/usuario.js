@@ -3,54 +3,50 @@
 var Usuario = require('../modelos/usuario')
 var mongoose = require('mongoose')
 var servicios = require('../servicios/servicios')
+var bcrypt = require('bcrypt-nodejs')
 
-
-function  guardarUsuario() {
-	
-	let usuario = new Usuario();
-	usuario.nombre = req.params.nombre
-	usuario.correo = req.params.correo
-	usuario.password = req.params.password
-	usuario.tipo = req.params.tipo
-	usuario.fechaNacimiento = req.params.fechaNacimiento
-	usuario.save((err, usuarioModel) => {
-		if(err) res.status(200).send({message: "Error al salvar en la base de datos"})
-
-		res.status(200).send({usuario: usuarioModel})
-	});
-}
-
-function signUp(req, res) {
+function signUp(req,res) {	
 	const usuario = new Usuario({
 
-		correo: req.body.correo,
-		nombre: req.body.nombre,
+		correo: req.body.email,
+		nombre: req.body.name,
+		apellidos: req.body.lastName,
 		password: req.body.password
-	})
-	usuario.save((err) =>{
-		if (err) res.status(500).send({message:'Error al crear el usuario'})
+	});
 
-		return res.status(200).send({token:servicios.crearToken(usuario)})
-	})
-}
-
-
-function signIn (req,res){
-
-	Usuario.find({correo: req.body.email}, (err,usuario) => {
-		if(err) return res.status(500).send({message:err})
-
-		if (!usuario) return res.status(404).send({message:'No existe el usuario'})
+	usuario.save(function(error){
+		if (error) {
+			res.json({success:false, message:'Username or email already exists!'})
+		}else{
+			res.json({success:true, message:'User created!!!'})
+		}
+	});
+};
 
 
-		req.usuario = usuario
+function signIn (req,res){	
+	
+	Usuario.findOne({correo: req.body.correo}, (err,usuario) => {
+		
+		if(err) throw err
 
-		res.status(200).send({
-			message:'Te has logueado correctamente',
-			token: servicios.crearToken(usuario)
-		})
-	})
+		if (!usuario) {
+			res.json({success:false,message:'Could not authenticate user'})
+		}
+		
+		else{
 
+			var validPassword = usuario.comparePassword(req.body.password)
+			if(validPassword){
+				res.json({success:true,message:'User authenticated!!!'})
+			}else{
+				
+				res.json({success:false,message:'Could not authenticate user!'})
+			}
+			
+		}
+				
+	});
 }
 
 
@@ -99,8 +95,8 @@ function signInFacebook(correo, nombre, id){
 }
 
 module.exports = {
+	signUp,
 	signInFacebook,
 	signUpFacebook,
-	signUp,
-	signIn
+	signIn,
 }

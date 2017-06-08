@@ -3,6 +3,7 @@ var mongoose = require('mongoose')
 var Titicupones = require('../modelos/titicupones')
 
 function getTiticupones(req, res) {
+	
 	Titicupones.find({}, (err, titicupones) => {
 		
 		if(err){

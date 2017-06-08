@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html ng-app="userApp">
+<html ng-app="userApp" >
     <head>
         <title>
             Cupones y promociones
         </title>
         <base href="/">
+      
         <script src="https://code.angularjs.org/1.6.4/angular.js">
         </script>
         <script src="https://code.angularjs.org/1.6.4/angular-route.min.js">
@@ -37,8 +38,8 @@
             </link>
         </link>
     </head>
-    <body id="body">
-        <header ng-include="'views/pages/header.html'">
+    <body id="body" ng-controller="loginCtrl as log" >
+        <header ng-include="'views/pages/header.html'" ng-controller="regCtrl as register">
         </header>
         
         <div ng-view></div>
@@ -58,5 +59,9 @@
         </script>
         <script src="angular/mainCtrl.js">
         </script>
+        <script src="servicios/authServicios.js"></script>
+        
+        <script src="angular/loginCtrl.js"></script>
+        <script src="angular/userCtrl.js"></script>
     </body>
 </html>

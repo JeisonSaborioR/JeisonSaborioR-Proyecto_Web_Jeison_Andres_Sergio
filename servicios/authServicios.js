@@ -1,21 +1,10 @@
-angular.module('authServicios', [])
+angular.module('userServicios', [])
 
+.factory('Auth', function($http){
 
-.factory('Auth', function(AuthToken) {
-    var authFactory = {};
-    
-    
-    
-    
-    Auth.facebook(token);
-    
-    authFactory.facebook = function(token) {
-      AuthToken.setToken(token);  
-    };
-    
-    
-    
-    
-    
-    
+  var authFactory = {}
+  authFactory.login = function(regData) {
+    return $http.post('/login',regData); 
+  }
+  return authFactory;
 })

@@ -1,9 +1,9 @@
-<div id="navbar">
+<div id="navbar"   >
     <nav class="navbar navbar-static-top navbar-inverse">
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="">
-                    <a onclick="reload()" href="/">
+                    <a href="/">
                         <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 40px;">
                             <strong>
                                 Ofertas JSA
@@ -12,15 +12,16 @@
                     </a>
                 </li>
                 <li>
-                    <a onclick="deleteElement('container-identifier')" href="/contactenos">
+                    <a  href="/contactenos">
                         Cupones
                     </a>
                 </li>
                 <li>
-                    <a onclick="deleteElement('container-identifier')" href="#">
+                    <a  href="/Promociones">
                         Promociones
                     </a>
                 </li>
+               
             </ul>
             <div class="col-sm-4 col-md-5 col-md-offset-1">
                 <form class="" role="search">
@@ -74,19 +75,19 @@
                                         </a>
                                         -->
                                     </div>
-                                    <form accept-charset="UTF-8" action="login" class="form" id="login-nav" method="post" role="form">
+                                    <form accept-charset="UTF-8"  class="form" id="login-nav"  role="form" method="POST" ng-submit="log.doLogin(loginData);">
                                         <div class="form-group">
                                             <label class="sr-only" for="emailLogin">
                                                 Correo
                                             </label>
-                                            <input class="form-control" id="emailLogin" placeholder="Correo" required="" type="email">
+                                            <input class="form-control" id="correo" placeholder="Correo" required="" type="text" name="correo" ng-model="log.loginData.correo">
                                             </input>
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="passwordLogin">
                                                 Contraseña
                                             </label>
-                                            <input class="form-control" id="passwordLogin" placeholder="Contraseña" required="" type="password">
+                                            <input class="form-control" id="password" placeholder="Contraseña" required="" type="password" name="password"  ng-model="log.loginData.password">
                                                 <div class="help-block text-right">
                                                     <a href="">
                                                         ¿Olvidates tu contraseña?
@@ -95,7 +96,7 @@
                                             </input>
                                         </div>
                                         <div class="form-group">
-                                            <button class="btn btn-primary btn-block" style="background: rgba(26, 203, 17, .8); border-color: #1ACB11;" type="submit">
+                                            <button class="btn btn-primary btn-block" style="background: rgba(26, 203, 17, .8); border-color: #1ACB11;" type="submit" value="Login">
                                                 Iniciar sesión
                                             </button>
                                         </div>
@@ -126,69 +127,73 @@
 </div>
 
 <!-- model para el registro de usuarios en el sistema -->
-<div class="modal fade" id="register-content" role="dialog">
-    <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
-        <div>
-            <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
-                <button class="close" data-dismiss="modal" style="color: #fff;" type="button">×</button>
-                <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
-                    <strong class="register-title">
-                        Regístrate
-                    </strong>
-                </img>
-            </div>
-            <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
-                <div class="row" style="margin: 0 2% 0 2%;">
-                    <div class="form-group col-xs-6">
-                        <label class="sr-only" for="nameRegister">
-                            Nombre
-                        </label>
-                        <span>
-                        </span>
-                        <input class="form-control" id="nameRegister" placeholder="Nombre" required="" type="name">
-                        </input>
-                    </div>
-                    <div class="for col-xs-6">
-                        <label class="sr-only" for="lastNameRegister">
-                            Apellido
-                        </label>
-                        <input class="form-control" id="lastNameRegister" placeholder="Apellidos" required="" type="lastName">
-                        </input>
-                    </div>
-                    <div class="form-group col-xs-12">
-                        <label class="sr-only" for="emailRegister">
-                            Correo
-                        </label>
-                        <input class="form-control" id="emailRegister" placeholder="Correo" required="" type="email">
-                        </input>
-                    </div>
-                    <div class="form-group col-xs-12">
-                        <label class="sr-only" for="passwordRegister">
-                            Contraseña
-                        </label>
-                        <input class="form-control" id="passwordRegister" placeholder="Contraseña" required="" type="password">
-                        </input>
-                    </div>
-                    <div class="form-group col-xs-12">
-                        <label class="sr-only" for="passwordConfirmRegister">
-                            confirmaciónContraseña
-                        </label>
-                        <input class="form-control" id="passwordConfirmRegister" placeholder="Confirma tu contraseña" required="" type="password">
-                        </input>
+<form ng-submit="register.regUser(regData);">
+    <div class="modal fade" id="register-content" role="dialog">
+        <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
+            <div>
+                <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
+                    <button class="close" data-dismiss="modal" style="color: #fff;" type="button">×</button>
+                    <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
+                        <strong class="register-title">
+                            Regístrate
+                        </strong>
+                    </img>
+                </div>
+                <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
+                    <div class="row" style="margin: 0 2% 0 2%;">
+                        <div class="form-group col-xs-6">
+                            <label class="sr-only" for="nameRegister">
+                                Nombre
+                            </label>
+                            <span>
+                            </span>
+                            <input class="form-control" id="name" placeholder="Nombre" required="" type="name" name="name" ng-model="register.regData.name">
+                            </input>
+                        </div>
+                        <div class="for col-xs-6">
+                            <label class="sr-only" for="lastNameRegister">
+                                Apellido
+                            </label>
+                            <input class="form-control" id="lastName" placeholder="Apellidos" required="" type="lastName" name="lastName" ng-model="register.regData.lastName">
+                            </input>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="sr-only" for="emailRegister">
+                                Correo
+                            </label>
+                            <input class="form-control" id="email" placeholder="Correo" required="" type="email" name="email" ng-model="register.regData.email">
+                            </input>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="sr-only" for="passwordRegister">
+                                Contraseña
+                            </label>
+                            <input class="form-control" id="password" placeholder="Contraseña" required="" type="password" name="password" ng-model="register.regData.password">
+                            </input>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="sr-only" for="passwordConfirmRegister">
+                                confirmaciónContraseña
+                            </label>
+                            <input class="form-control" id="passwordConfirmRegister" placeholder="Confirma tu contraseña" required="" type="password" name="passwordConfirm" ng-model="register.regData.passwordConfirm">
+                            </input>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
-                <div class="row" style="margin-right: 5%;">
-                    <input class="register-register" id="submit" name="submit" type="submit" value="Registrar"/>
-                    <button class="register-close" data-dismiss="modal" type="button">
-                        Close
-                    </button>
+              
+                <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
+                    <div class="row" style="margin-right: 5%;">
+                        <input class="register-register" id="submit" name="submit" type="submit" value="Registrar"/>
+                        <button class="register-close" data-dismiss="modal" type="button">
+                            Close
+                        </button>
+                    </div>
                 </div>
+               
             </div>
         </div>
     </div>
-</div>
+</form>
 
 <!-- model para el contáctenos -->
 <div class="modal fade" id="contact-content" role="dialog">

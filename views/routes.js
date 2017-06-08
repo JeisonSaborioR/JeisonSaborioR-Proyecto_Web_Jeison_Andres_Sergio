@@ -8,14 +8,25 @@ app.config(function($routeProvider, $locationProvider){
 	$routeProvider
 	
 	.when('/', {
-		templateUrl:'views/pages/home.html',
-        controller: 'mainCtrl'
+		templateUrl:'views/pages/home.html'
+		//controller: 'regCtrl',
+		//controllerAs:'register'
+		
        
 	})
 	.when('/contactenos', {
 		templateUrl:'views/pages/contactenos.html'
 	})
-    
+
+	
+    .when('/Promociones', {
+		templateUrl:'views/pages/prueba.html',
+		
+	})
+	.when('/vistaUsuario', {
+		templateUrl:'views/userView.html',
+		
+	})
     .when('/facebook/:token', {
 		templateUrl:'views/pages/contactenos.html',
         controller: 'facebookCtrl',
@@ -34,20 +45,6 @@ app.config(function($routeProvider, $locationProvider){
     
 });
 
-
-
-//Obtiene promociones de basedatos
-
-app.controller('mainCtrl', function($scope, $http) {
-
-	$scope.posts = [];
-
-	$http.get('/titicupones').then(function(data) {
-		//console.log(data)
-		$scope.posts = data.data.titicupones;
-
-	});
-});
 
 this.facebook = function(){
     console.log('test');
