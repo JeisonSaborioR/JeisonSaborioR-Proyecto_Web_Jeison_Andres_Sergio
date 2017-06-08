@@ -11,17 +11,6 @@ app.config(function($routeProvider, $locationProvider){
 		templateUrl:'views/pages/home.html'
 		//controller: 'regCtrl',
 		//controllerAs:'register'
-		
-       
-	})
-	.when('/contactenos', {
-		templateUrl:'views/pages/contactenos.html'
-	})
-
-	
-    .when('/Promociones', {
-		templateUrl:'views/pages/prueba.html',
-		
 	})
 	.when('/vistaUsuario', {
 		templateUrl:'views/userView.html',
@@ -36,6 +25,13 @@ app.config(function($routeProvider, $locationProvider){
     .when('/google/:token', {
         templateUrl:'views/pages/contactenos.html'
     })
+    .when('/cupones', {
+		templateUrl:'views/pages/cupones.html',
+		controller: 'mainCtrl'
+	})
+    .when('/promociones', {
+		templateUrl:'views/pages/promociones.html'
+	})
 	.otherwise({redirectTo:'/'});
     
     $locationProvider.html5Mode({

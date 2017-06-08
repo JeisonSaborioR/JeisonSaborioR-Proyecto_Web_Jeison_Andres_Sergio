@@ -61,3 +61,8 @@
 .register-close:hover {background: rgb(255, 77, 77); font-weight: 600;}
 
 .register-title {color: #fff; font-size: 14pt; font-family: 'Muli', sans-serif;}
+
+input[type=file] { 
+    width: 1px; 
+    visibility: hidden;
+}

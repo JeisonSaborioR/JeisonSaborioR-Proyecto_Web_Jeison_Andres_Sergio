@@ -72,6 +72,8 @@ text-decoration: none;
 
 .itemOptions {background: rgba(0, 0, 0, .8); display: none; }
 
+.itemOptions .options { color: rgba(255, 255, 255, 1); }
+
 @media (min-width: 768px) {
 
 	.addItem { margin-left: 69%; }
@@ -81,7 +83,7 @@ text-decoration: none;
 @media (max-width: 768px) {
 
 	.addItem { margin-left: 58%; }
-	.aditional-info:hover .itemOptions { display: inherit; position: absolute; top: 45%; width: 95.4%; left: 4.6%;}
+	.aditional-info:hover .itemOptions { display: inherit; position: absolute; top: 64%; width: 95.4%; left: 4.6%;}
 }
 
 .popular-title { 
