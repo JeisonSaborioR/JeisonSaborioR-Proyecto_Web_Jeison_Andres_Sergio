@@ -1,19 +1,19 @@
 
 var mongoose = require('mongoose')
-var Titicupones = require('../modelos/titicupones')
+var Datos = require('../modelos/datos')
 
 function getTiticupones(req, res) {
 	
-	Titicupones.find({}, (err, titicupones) => {
+	Datos.find({}, (err, datos) => {
 		
 		if(err){
 			return res.status(500).send({message:'Error al realizar la peteción'})
 		}
-		if (!titicupones) {
+		if (!datos) {
 			return res.status(404).send({message:'No existen titicupones'})
 		}
 		
-		res.send(200, {titicupones})
+		res.send(200, {datos})
 		
 	})
 }

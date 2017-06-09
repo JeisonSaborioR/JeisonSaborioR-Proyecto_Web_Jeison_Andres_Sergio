@@ -11,7 +11,7 @@ var path = require('path')
 
 
 var usuarioCtrl = require('./controllers/usuario')
-var titicuponesCtrl = require('./controllers/titicupones')
+var titicuponesCtrl = require('./controllers/datos')
 var autentificacion = require('./middlewares/autentificacion')
 
 

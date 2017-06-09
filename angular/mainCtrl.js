@@ -9,7 +9,7 @@ angular.module('mainController', [])
 	$http.get('/titicupones').then(function(data) {
 		console.log(data)
 		//console.log(data)
-		$scope.posts = data.data.titicupones;
+		$scope.posts = data.data.datos;
 
 	});
 });
