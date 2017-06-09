@@ -1,126 +1,4 @@
 <div class="container">
-    <!-- model para modificar item -->
-    <div class="modal fade" id="item-update" role="dialog">
-        <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
-            <div>
-                <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
-                    <button class="close" data-dismiss="modal" style="color: #fff;" type="button">
-                        ×
-                    </button>
-                    <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
-                        <strong class="register-title">
-                            Actualizar Oferta
-                        </strong>
-                    </img>
-                </div>
-                <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
-                    <div class="row" style="margin: 0 2% 0 2%;">
-                        <div class="form-group col-xs-12" style="text-align: center;">
-                            <input type="file" id="upload" />
-                            <input type="image" id="click" src="imagenes/Image.png" style="width: 312px;" />
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <textarea class="form-control" id="descriptionUpdate" name="descriptionUpdate" placeholder="Por favor digita aquí la descripción..." rows="2"></textarea>
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <label class="sr-only" for="priceUpdate">
-                                Precio
-                            </label>
-                            <input class="form-control" id="priceUpdate" placeholder="Precio" required="" type="precio">
-                            </input>
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <label class="sr-only" for="dateUpdate">
-                                Fecha de Vencimiento
-                            </label>
-                            <input class="form-control" id="dateUpdate" placeholder="Fecha de Vencimiento" required="" type="fechaVencimiento">
-                            </input>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
-                    <div class="row" style="margin-right: 5%;">
-                        <input class="register-register" id="submit" name="submit" type="submit" value="Actualizar"/>
-                        <button class="register-close" data-dismiss="modal" type="button">
-                            Cancelar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- model para enviar a usuario -->
-    <div class="modal fade" id="item-message" role="dialog">
-        <div class="modal-dialog" style="max-width: 550px; box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
-            <div>
-                <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
-                    <button class="close" data-dismiss="modal" style="color: #fff;" type="button">
-                        ×
-                    </button>
-                    <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
-                        <strong class="register-title">
-                            Compartir Oferta
-                        </strong>
-                    </img>
-                </div>
-                <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
-                    <div class="row" style="margin: 0 2% 0 2%;">
-                        <div class="form-group col-xs-12">
-                            <select class="form-control" name="userList" form="userForm">
-                                <option value="usuarioUno">Usuario Uno</option>
-                                <option value="usuarioDos">Usuario Dos</option>
-                                <option value="usuarioTres">Usuario Tres</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-xs-12">
-                            <textarea class="form-control" id="messageMessage" name="messageMessage" placeholder="Por favor digita aquí tu mensaje..." rows="7"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
-                    <div class="row" style="margin-right: 5%;">
-                        <input class="register-register" id="submit" name="submit" type="submit" value="Compartir"/>
-                        <button class="register-close" data-dismiss="modal" type="button">
-                            Cancelar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- model para eliminar item -->
-    <div class="modal fade" id="item-delete" role="dialog">
-        <div class="modal-dialog" style="max-width: 550px; box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
-            <div>
-                <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
-                    <button class="close" data-dismiss="modal" style="color: #fff;" type="button">
-                        ×
-                    </button>
-                    <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
-                        <strong class="register-title">
-                            Eliminar Oferta
-                        </strong>
-                    </img>
-                </div>
-                <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
-                    <div class="row" style="margin: 0 2% 0 2%;">
-                        <h4>Está seguro que quiere eliminar está oferta?</h4>
-                    </div>
-                </div>
-                <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
-                    <div class="row" style="margin-right: 5%;">
-                        <input class="register-register" id="submit" name="submit" type="submit" value="Eliminar"/>
-                        <button class="register-close" data-dismiss="modal" type="button">
-                            Cancelar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-            
     <div class="row" style="margin-top: 7%;">
         <!--content row-->
         <div class="col col-md-9">
@@ -213,7 +91,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="popular-title">
-                        Cupones más buscados<strong><a class="addItem" href="#"><i class="fa fa-plus" aria-hidden="true" style="color: #545252;"></i></a></strong>
+                        Cupones más buscados
                     </h3>
                 </div>
             </div>
@@ -226,7 +104,7 @@
                     <div class="aditional-info">
                         <ul class="small-event-list">
                             <li>
-                                <div class="row itemOptions">
+                                <!--<div class="row itemOptions">
                                     <div class="col-md-12 opt">
                                         <div class="col col-md-4">
                                             <a data-target="#item-update" data-toggle="modal" href="#"><i class="fa fa-pencil options" aria-hidden="true"></i></a>
@@ -238,7 +116,7 @@
                                             <a data-target="#item-delete" data-toggle="modal" href="#"><i class="fa fa-trash options" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 <img ng-src="{{post.imagen}}">
                                     <div class="info">
                                         <div style="min-height: 76px;">
