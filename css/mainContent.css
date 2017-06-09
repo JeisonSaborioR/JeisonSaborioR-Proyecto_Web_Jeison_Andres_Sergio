@@ -76,13 +76,13 @@ text-decoration: none;
 
 @media (min-width: 768px) {
 
-	.addItem { margin-left: 69%; }
+	.addItem { margin-left: 86%; color: #605F5F; }
 	.aditional-info:hover .itemOptions { display: inherit; position: absolute; top: 45%; width: 86.5%; left: 13.7%}
 }
 
 @media (max-width: 768px) {
 
-	.addItem { margin-left: 58%; }
+	.addItem { margin-left: 81%; color: #605F5F; }
 	.aditional-info:hover .itemOptions { display: inherit; position: absolute; top: 64%; width: 95.4%; left: 4.6%;}
 }
 
