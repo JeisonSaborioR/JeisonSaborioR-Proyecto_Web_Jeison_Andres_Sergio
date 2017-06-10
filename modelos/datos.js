@@ -10,6 +10,7 @@ var datosModel = schema({
     descuento: String,
     fechaVencimiento: String,
     visitas: String,
+    tipoPag:String,
     url:String
 })
 

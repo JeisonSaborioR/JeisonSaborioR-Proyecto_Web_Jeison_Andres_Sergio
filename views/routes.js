@@ -27,10 +27,11 @@ app.config(function($routeProvider, $locationProvider){
     })
     .when('/cupones', {
 		templateUrl:'views/pages/cupones.html',
-		controller: 'mainCtrl'
+		//controller: 'mainCtrl'
 	})
     .when('/promociones', {
-		templateUrl:'views/pages/promociones.html'
+		templateUrl:'views/pages/promociones.html',
+		//controller: 'mainYuplonCtrl'
 	})
 	.otherwise({redirectTo:'/'});
     

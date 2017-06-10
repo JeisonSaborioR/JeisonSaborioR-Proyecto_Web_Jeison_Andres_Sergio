@@ -1,1 +1,373 @@
-<div>Promociones</div>
+<div class="container" >
+    <!-- model para insertar item -->
+    <div class="modal fade" id="item-insert" role="dialog">
+        <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
+            <div>
+                <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
+                    <button class="close" data-dismiss="modal" style="color: #fff;" type="button">
+                        ×
+                    </button>
+                    <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
+                        <strong class="register-title">
+                            Insertar Oferta
+                        </strong>
+                    </img>
+                </div>
+                <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
+                    <div class="row" style="margin: 0 2% 0 2%;">
+                        <div class="form-group col-xs-12" style="text-align: center;">
+                            <input type="file" id="upload" />
+                            <input type="image" id="click" src="imagenes/Image.png" style="width: 312px;" />
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <textarea class="form-control" id="descriptionNew" name="descriptionNew" placeholder="Por favor digita aquí la descripción..." rows="2"></textarea>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="sr-only" for="priceNew">
+                                Precio
+                            </label>
+                            <input class="form-control" id="priceNew" placeholder="Precio" required="" type="nuevoPrecio">
+                            </input>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="sr-only" for="dateNew">
+                                Fecha de Vencimiento
+                            </label>
+                            <input class="form-control" id="dateNew" placeholder="Fecha de Vencimiento" required="" type="nuevaFechaVencimiento">
+                            </input>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
+                    <div class="row" style="margin-right: 5%;">
+                        <input class="register-register" id="submit" name="submit" type="submit" value="Insertar"/>
+                        <button class="register-close" data-dismiss="modal" type="button">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model para modificar item -->
+    <div class="modal fade" id="item-update" role="dialog">
+        <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
+            <div>
+                <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
+                    <button class="close" data-dismiss="modal" style="color: #fff;" type="button">
+                        ×
+                    </button>
+                    <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
+                        <strong class="register-title">
+                            Actualizar Oferta
+                        </strong>
+                    </img>
+                </div>
+                <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
+                    <div class="row" style="margin: 0 2% 0 2%;">
+                        <div class="form-group col-xs-12" style="text-align: center;">
+                            <input type="file" id="upload" />
+                            <input type="image" id="click" src="imagenes/Image.png" style="width: 312px;" />
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <textarea class="form-control" id="descriptionUpdate" name="descriptionUpdate" placeholder="Por favor digita aquí la descripción..." rows="2"></textarea>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="sr-only" for="priceUpdate">
+                                Precio
+                            </label>
+                            <input class="form-control" id="priceUpdate" placeholder="Precio" required="" type="precio">
+                            </input>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <label class="sr-only" for="dateUpdate">
+                                Fecha de Vencimiento
+                            </label>
+                            <input class="form-control" id="dateUpdate" placeholder="Fecha de Vencimiento" required="" type="fechaVencimiento">
+                            </input>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
+                    <div class="row" style="margin-right: 5%;">
+                        <input class="register-register" id="submit" name="submit" type="submit" value="Actualizar"/>
+                        <button class="register-close" data-dismiss="modal" type="button">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- model para enviar a usuario -->
+    <div class="modal fade" id="item-message" role="dialog">
+        <div class="modal-dialog" style="max-width: 550px; box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
+            <div>
+                <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
+                    <button class="close" data-dismiss="modal" style="color: #fff;" type="button">
+                        ×
+                    </button>
+                    <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
+                        <strong class="register-title">
+                            Compartir Oferta
+                        </strong>
+                    </img>
+                </div>
+                <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
+                    <div class="row" style="margin: 0 2% 0 2%;">
+                        <div class="form-group col-xs-12">
+                            <select class="form-control" name="userList" form="userForm">
+                                <option value="usuarioUno">Usuario Uno</option>
+                                <option value="usuarioDos">Usuario Dos</option>
+                                <option value="usuarioTres">Usuario Tres</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <textarea class="form-control" id="messageMessage" name="messageMessage" placeholder="Por favor digita aquí tu mensaje..." rows="7"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
+                    <div class="row" style="margin-right: 5%;">
+                        <input class="register-register" id="submit" name="submit" type="submit" value="Compartir"/>
+                        <button class="register-close" data-dismiss="modal" type="button">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- model para eliminar item -->
+    <div class="modal fade" id="item-delete" role="dialog">
+        <div class="modal-dialog" style="max-width: 550px; box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
+            <div>
+                <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
+                    <button class="close" data-dismiss="modal" style="color: #fff;" type="button">
+                        ×
+                    </button>
+                    <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
+                        <strong class="register-title">
+                            Eliminar Oferta
+                        </strong>
+                    </img>
+                </div>
+                <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
+                    <div class="row" style="margin: 0 2% 0 2%;">
+                        <h4>Está seguro que quiere eliminar está oferta?</h4>
+                    </div>
+                </div>
+                <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
+                    <div class="row" style="margin-right: 5%;">
+                        <input class="register-register" id="submit" name="submit" type="submit" value="Eliminar"/>
+                        <button class="register-close" data-dismiss="modal" type="button">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 5%;">
+        <!--content row-->
+        <div class="col col-md-9" style="margin-top: .9%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="popular-title">
+                        Cupones<strong><a data-target="#item-insert" data-toggle="modal" href="#"><i class="fa fa-plus addItem" aria-hidden="true"></i></a></strong>
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="height: 15px;">
+                </div>
+            </div>
+            <div class="row" ng-controller="mainYuplonCtrl">
+                <div class="col col-md-3" ng-repeat="post in posts  | pagination: (currentPage - 1) * pageSize | limitTo:pageSize">
+                    <div class="aditional-info">
+                        <ul class="small-event-list">
+                            <li>
+                                <div class="row itemOptions">
+                                    <div class="col-md-12 opt">
+                                        <div class="col col-md-4">
+                                            <a data-target="#item-update" data-toggle="modal" href="#"><i class="fa fa-pencil options" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <a data-target="#item-message" data-toggle="modal" href="#"><i class="fa fa-comments-o options" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <a  data-target="#item-delete" data-toggle="modal" href="#"><i class="fa fa-trash options" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img ng-src="{{post.imagen}}">
+                                    <div class="info">
+                                        <div style="min-height: 76px;">
+                                            <a class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000;">
+                                                {{post.titulo}}
+                                            </a>
+                                        </div>
+                                        <p class="price">
+                                            {{post.precio}}
+                                        </p>
+                                        <p class="date">
+                                            Finaliza el {{post.fechaVencimiento}}
+                                        </p>
+                                        <p>
+                                        </p>
+                                    </div>
+                                    <!-- model para ver los detalles del oferta -->
+                                    <div class="modal fade" id="item-info" role="dialog">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-offer">
+                                                <div class="modal-header">
+                                                    <button class="close" data-dismiss="modal" type="button">
+                                                        ×
+                                                    </button>
+                                                    <div class="row">
+                                                        <div class="col col-md-12">
+                                                            <h4 class="modal-title">
+                                                                {{post.titulo}}
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-body" id="offer">
+                                                    <div class="row">
+                                                        <div class="col col-md-8">
+                                                            <div>
+                                                                <img src="{{post.imagen}}">
+                                                                </img>
+                                                            </div>
+                                                        </div>
+                                                        <div class="visible-md visible-lg col col-md-4">
+                                                            <div class="offer-info">
+                                                                <br>
+                                                                    <div>
+                                                                        <h3 class="new-price">
+                                                                            Precio Actual
+                                                                        </h3>
+                                                                        <h4 class="old-price">
+                                                                            Precio Anterior
+                                                                        </h4>
+                                                                        <hr style="color: #000;">
+                                                                        </hr>
+                                                                    </div>
+                                                                    <br>
+                                                                        <div class="offer-options">
+                                                                            <button class="buy" data-dismiss="modal" style="min-width: 160px; margin-bottom: 8%;" type="button">
+                                                                                Comprar
+                                                                            </button>
+                                                                            <button class="gift" data-dismiss="modal" style="min-width: 160px;" type="button">
+                                                                                Regalar a un amigo
+                                                                            </button>
+                                                                        </div>
+                                                                        <br>
+                                                                            <hr style="color: #000;">
+                                                                                <div>
+                                                                                    <h3 class="times-sold">
+                                                                                        Vendidos
+                                                                                    </h3>
+                                                                                    <h4 class="offer-end">
+                                                                                        La oferta termina {{post.fechaVencimiento}}
+                                                                                    </h4>
+                                                                                </div>
+                                                                                <br>
+                                                                                </br>
+                                                                            </hr>
+                                                                        </br>
+                                                                    </br>
+                                                                </br>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </img>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <ul uib-pagination total-items="posts.length" items-per-page="pageSize" ng-model="currentPage"></ul>
+            </div>
+
+            <div class="row">
+                <div class="col" style="height: 20px;">
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-6 col-md-3">
+        	<div class="row">
+                <div class="col" style="height: 30px;">
+                </div>
+            </div>
+            <aside class="visible-md visible-lg container-fluid" id="aside-container">
+                <div class="row">
+                    <h4 class="aside-title">
+                        Novedades
+                    </h4>
+                    <div class="lastest">
+                        <img src="imagenes/rotan_ajust_1.jpg">
+                        </img>
+                    </div>
+                </div>
+                <div class="row" id="news">
+                    <li data-target="#new-one" data-toggle="collapse" id="category">
+                        <span class="glyphicon glyphicon-chevron-right">
+                        </span>
+                        <a class="info-news" href="#">
+                            ¡Disfruta con comida japonesa de Hanabi! Pagá ₡3000 y consumí ₡6000.
+                        </a>
+                    </li>
+                    <ul class="sub-menu collapse" id="new-one">
+                        <li class="lastest">
+                            <img src="imagenes/Alimentación.jpg"/>
+                        </li>
+                    </ul>
+                    <li data-target="#new-two" data-toggle="collapse" id="category">
+                        <span class="glyphicon glyphicon-chevron-right">
+                        </span>
+                        <a class="info-news" href="#">
+                            ¡Mirada de ensueño! Extensiones de pestañas a prueba de agua por ₡12.500.
+                        </a>
+                    </li>
+                    <ul class="sub-menu collapse" id="new-two">
+                        <li class="lastest">
+                            <img src="imagenes/Belleza.jpg"/>
+                        </li>
+                    </ul>
+                    <li data-target="#new-three" data-toggle="collapse" id="category">
+                        <span class="glyphicon glyphicon-chevron-right">
+                        </span>
+                        <a class="info-news" href="#">
+                            Grandioso tour Spider Monkey Canyon de varias actividades a mitad de precio.
+                        </a>
+                    </li>
+                    <ul class="sub-menu collapse" id="new-three">
+                        <li class="lastest">
+                            <img src="imagenes/Turismo.jpg"/>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <div class="visible-md visible-lg container-fluid">
+                <div class="row">
+                    <div class="announces-container">
+                        <img class="announce" src="imagenes/Anuncio Uno.jpg">
+                            <img class="announce" src="imagenes/Anuncio Dos.jpg">
+                            </img>
+                        </img>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--end content row-->
+</div>

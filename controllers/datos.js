@@ -4,7 +4,7 @@ var Datos = require('../modelos/datos')
 
 function getTiticupones(req, res) {
 	
-	Datos.find({}, (err, datos) => {
+	Datos.find({tipoPag: "Titicupon"}, (err, datos) => {
 		
 		if(err){
 			return res.status(500).send({message:'Error al realizar la peteción'})
@@ -17,7 +17,57 @@ function getTiticupones(req, res) {
 		
 	})
 }
+function getYuplones(req, res) {
+	
+	Datos.find({tipoPag:"Yuplon"}, (err, datos) => {
+		
+		if(err){
+			return res.status(500).send({message:'Error al realizar la peteción'})
+		}
+		if (!datos) {
+			return res.status(404).send({message:'No existen Yuplones'})
+		}
+		
+		res.send(200, {datos})
+		
+	})
+}
 
+function getTopTiticupones(req, res) {
+	
+	Datos.find({visitas:"1",tipoPag: "Titicupon"}, (err, datos) => {
+		
+		if(err){
+			return res.status(500).send({message:'Error al realizar la peteción'})
+		}
+		if (!datos) {
+			return res.status(404).send({message:'No existen Yuplones'})
+		}
+		
+		res.send(200, {datos})
+		
+	})
+}
+
+function getTopYuplones(req, res) {
+	
+	Datos.find({visitas:"1",tipoPag:"Yuplon"}, (err, datos) => {
+		
+		if(err){
+			return res.status(500).send({message:'Error al realizar la peteción'})
+		}
+		if (!datos) {
+			return res.status(404).send({message:'No existen Yuplones'})
+		}
+		
+		res.send(200, {datos})
+		
+	})
+}
 module.exports = {
-	getTiticupones
+	getTiticupones,
+	getYuplones,
+	getTopTiticupones,
+	getTopYuplones
+
 }

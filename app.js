@@ -36,8 +36,12 @@ app.use('/controllers', express.static(__dirname + '/controllers'))
 //Peticiones post usuario
 
 app.get('/titicupones', titicuponesCtrl.getTiticupones)
+app.get('/yuplones', titicuponesCtrl.getYuplones)
+app.get('/topTiticupones', titicuponesCtrl.getTopTiticupones)
+app.get('/topYuplones', titicuponesCtrl.getTopYuplones)
 app.post('/registro', usuarioCtrl.signUp)
 app.post('/login', usuarioCtrl.signIn)
+
 
 
 app.get('/private', autentificacion, (req,res) => {

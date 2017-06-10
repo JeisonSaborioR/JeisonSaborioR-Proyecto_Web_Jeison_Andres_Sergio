@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" >
     <!-- model para insertar item -->
     <div class="modal fade" id="item-insert" role="dialog">
         <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
@@ -186,7 +186,7 @@
                 </div>
             </div>
             <div class="row" ng-controller="mainCtrl">
-                <div class="col col-md-3" ng-repeat="post in posts">
+                <div class="col col-md-3" ng-repeat="post in posts | pagination: (currentPage - 1) * pageSize | limitTo:pageSize">
                     <div class="aditional-info">
                         <ul class="small-event-list">
                             <li>
@@ -293,6 +293,7 @@
                         </ul>
                     </div>
                 </div>
+                <ul uib-pagination total-items="posts.length" items-per-page="pageSize" ng-model="currentPage"></ul>
             </div>
             <div class="row">
                 <div class="col" style="height: 20px;">
@@ -367,3 +368,5 @@
     </div>
     <!--end content row-->
 </div>
+
+ 

@@ -99,24 +99,12 @@
                 <div class="col" style="height: 15px;">
                 </div>
             </div>
-            <div class="row" ng-controller="mainCtrl">
+            <div class="row" ng-controller="mainTiticuponTopCtrl">
                 <div class="col col-md-3" ng-repeat="post in posts">
                     <div class="aditional-info">
                         <ul class="small-event-list">
                             <li>
-                                <!--<div class="row itemOptions">
-                                    <div class="col-md-12 opt">
-                                        <div class="col col-md-4">
-                                            <a data-target="#item-update" data-toggle="modal" href="#"><i class="fa fa-pencil options" aria-hidden="true"></i></a>
-                                        </div>
-                                        <div class="col col-md-4">
-                                            <a data-target="#item-message" data-toggle="modal" href="#"><i class="fa fa-comments-o options" aria-hidden="true"></i></a>
-                                        </div>
-                                        <div class="col col-md-4">
-                                            <a data-target="#item-delete" data-toggle="modal" href="#"><i class="fa fa-trash options" aria-hidden="true"></i></a>
-                                        </div>
-                                    </div>
-                                </div>-->
+                            
                                 <img ng-src="{{post.imagen}}">
                                     <div class="info">
                                         <div style="min-height: 76px;">
@@ -219,72 +207,25 @@
                 <div class="col" style="height: 15px;">
                 </div>
             </div>
-            <div class="row">
-                <div class="col col-md-3">
+            <div class="row" ng-controller="mainYuplonTopCtrl">
+                <div class="col col-md-3" ng-repeat="post in posts">
                     <div class="aditional-info">
                         <ul class="small-event-list">
                             <li>
-                                <img src="imagenes/vista_ajust_1_6.jpg">
+                                 <img ng-src="{{post.imagen}}">
                                     <div class="info">
-                                        <a class="title-content">
-                                            ¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500
-                                        </a>
-                                        <p class="desc">
-                                            Fortuna
+                                        <div style="min-height: 76px;">
+                                            <a class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;">
+                                                {{post.titulo}}
+                                            </a>
+                                        </div>
+                                        <p class="price">
+                                            {{post.precio}}
                                         </p>
-                                    </div>
-                                </img>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col col-md-3">
-                    <div class="aditional-info">
-                        <ul class="small-event-list">
-                            <li>
-                                <img src="imagenes/vista_ajust_1_6.jpg">
-                                    <div class="info">
-                                        <a class="title-content">
-                                            ¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500
-                                        </a>
-                                        <p class="desc">
-                                            Fortuna
+                                        <p class="date">
+                                            Finaliza el {{post.fechaVencimiento}}
                                         </p>
-                                    </div>
-                                </img>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col col-md-3">
-                    <div class="aditional-info">
-                        <ul class="small-event-list">
-                            <li>
-                                <img src="imagenes/vista_ajust_1_6.jpg">
-                                    <div class="info">
-                                        <a class="title-content">
-                                            ¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500
-                                        </a>
-                                        <p class="desc">
-                                            Fortuna
-                                        </p>
-                                    </div>
-                                </img>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col col-md-3">
-                    <div class="aditional-info">
-                        <ul class="small-event-list">
-                            <li>
-                                <img src="imagenes/vista_ajust_1_6.jpg">
-                                    <div class="info">
-                                        <a class="title-content">
-                                            ¡Visitá La Fortuna! Arenal Vista Lodge con desayuno y cena a sólo ₡38.500
-                                        </a>
-                                        <p class="desc">
-                                            Fortuna
+                                        <p>
                                         </p>
                                     </div>
                                 </img>
