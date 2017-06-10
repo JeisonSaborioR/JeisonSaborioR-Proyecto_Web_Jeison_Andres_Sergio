@@ -30,7 +30,7 @@ footer { background-color:#0c1a1e; min-height:350px; font-family: 'Open Sans', s
  .bottom_ul li:after { content:" "; color:#FFF; margin-right:8px; margin-left:8px;}
  .bottom_ul li a { color:#FFF;  font-size:12px;}
 
-.social-buttons-footer {margin-right: 10px; width: 40px; opacity: 0.6;}
+.social-buttons-footer {margin-right: 10px; width: 35px; opacity: 0.6;}
 
 .social-buttons-footer:hover {opacity: 1;}
 

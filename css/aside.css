@@ -14,7 +14,7 @@
 
 .announces-container {width: 100%; margin-bottom: 9.5%; }
 
-.announces-container img { max-height: 341.5px; width: 100%; padding: 1px 0 1px 0;}
+.announce { min-height: 400px; width: 100%; padding: 1px 0 1px 0; }
 
 .lastest img {min-height: 180px; width: 100%; padding: 1px 1px 1px 1px;}
 
