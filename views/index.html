@@ -42,7 +42,15 @@
      
     </head>
     <body id="body" ng-controller="loginCtrl as log">
-        <header ng-include="'views/pages/header.html'" ng-controller="regCtrl as register">
+        <header  ng-controller="regCtrl as register">
+            <div ng-show="log.isLoggedIn">
+                <div ng-include="'views/pages/headerLog.html'"></div>
+              
+            </div>
+
+             <div ng-show="!log.isLoggedIn">
+                <div ng-include="'views/pages/header.html'"></div>
+            </div>
         </header>
         
         <div ng-view></div>

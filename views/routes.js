@@ -37,6 +37,18 @@ app.config(function($routeProvider, $locationProvider){
 		authenticated:false
 		//controller: 'mainYuplonCtrl'
 	})
+	 .when('/logout', {
+		templateUrl:'views/pages/logout.html',
+		authenticated:true
+		//controller: 'mainYuplonCtrl'
+	})
+	 .when('/login', {
+		templateUrl:'views/pages/login.html',
+		authenticated:true
+		//controller: 'mainYuplonCtrl'
+	})
+	
+	
 	.otherwise({redirectTo:'/'});
     
     $locationProvider.html5Mode({
@@ -51,14 +63,14 @@ app.run(['$rootScope','Auth',function($rootScope, Auth, $location){
 	$rootScope.$on('$routeChangeStart', function(event, next, current){
 		if(next.$$route.authenticated == true){
 			if(!Auth.isLoggedIn()){
-				event.preventDefault();
-				$location.path('/');
+				//event.preventDefault();
+				//$location.path('/');
 				     
 			}
 		}else if(next.$$route.authenticated == false){
 			if(Auth.isLoggedIn()){
-				event.preventDefault();
-				$location.path('/vistaUsuario');	
+				//event.preventDefault();
+				//$location.path('/vistaUsuario');	
 			}
 		}
 	});

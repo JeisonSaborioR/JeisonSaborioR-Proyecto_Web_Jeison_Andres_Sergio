@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="container"  ng-controller="mainCtrl as main">
     <!-- model para insertar item -->
     <div class="modal fade" id="item-insert" role="dialog">
         <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
@@ -140,36 +140,6 @@
         </div>
     </div>
 
-    <!-- model para eliminar item -->
-    <div class="modal fade" id="item-delete" role="dialog">
-        <div class="modal-dialog" style="max-width: 550px; box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
-            <div>
-                <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
-                    <button class="close" data-dismiss="modal" style="color: #fff;" type="button">
-                        ×
-                    </button>
-                    <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
-                        <strong class="register-title">
-                            Eliminar Oferta
-                        </strong>
-                    </img>
-                </div>
-                <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
-                    <div class="row" style="margin: 0 2% 0 2%;">
-                        <h4>Está seguro que quiere eliminar está oferta?</h4>
-                    </div>
-                </div>
-                <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
-                    <div class="row" style="margin-right: 5%;">
-                        <input class="register-register" id="submit" name="submit" type="submit" value="Eliminar"/>
-                        <button class="register-close" data-dismiss="modal" type="button">
-                            Cancelar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="row" style="margin-top: 5%;">
         <!--content row-->
@@ -185,12 +155,12 @@
                 <div class="col" style="height: 15px;">
                 </div>
             </div>
-            <div class="row" ng-controller="mainCtrl">
+            <div class="row">
                 <div class="col col-md-3" ng-repeat="post in posts | pagination: (currentPage - 1) * pageSize | limitTo:pageSize">
                     <div class="aditional-info">
                         <ul class="small-event-list">
                             <li>
-                                <div class="row item-options">
+                                <div class="row item-options" ng-show="log.tipo == 'administrador'">
                                     <div class="col-md-12 opt">
                                         <div class="col col-md-4">
                                             <a data-target="#item-update" data-toggle="modal" href="#"><i class="fa fa-pencil options" aria-hidden="true"></i></a>
@@ -199,7 +169,7 @@
                                             <a data-target="#item-message" data-toggle="modal" href="#"><i class="fa fa-comments-o options" aria-hidden="true"></i></a>
                                         </div>
                                         <div class="col col-md-4">
-                                            <a  data-target="#item-delete" data-toggle="modal" href="#"><i class="fa fa-trash options" aria-hidden="true"></i></a>
+                                            <a  data-target="#item-delete" data-toggle="modal" href="#"><i class="fa fa-trash options" aria-hidden="true" ></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -369,4 +339,37 @@
     <!--end content row-->
 </div>
 
- 
+ <!-- model para eliminar item -->
+<form ng-submit="main.deleteDato();">       
+    <div class="modal fade" id="item-delete" role="dialog">
+        <div class="modal-dialog" style="max-width: 550px; box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
+            <div>
+                <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
+                    <button class="close" data-dismiss="modal" style="color: #fff;" type="button">
+                        ×
+                    </button>
+                    <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 65px;">
+                        <strong class="register-title">
+                            Eliminar Oferta
+                        </strong>
+                    </img>
+                </div>
+                <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
+                    <div class="row" style="margin: 0 2% 0 2%;">
+                        <h4>Está seguro que quiere eliminar está oferta?</h4>
+                    </div>
+                </div>
+                <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
+                    <div class="row" style="margin-right: 5%;">
+                        <input  class="register-register" id="submit" name="submit" type="submit" value="Eliminar"/>
+                        <button class="register-close" data-dismiss="modal" type="button">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form> 

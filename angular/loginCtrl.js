@@ -4,7 +4,9 @@ angular.module('loginController',['userServicios'])
     
     var app = this;
     $rootScope.$on('$routeChangeStart',function(){
+     
         if(Auth.isLoggedIn()){
+            app.isLoggedIn = true;
             Auth.getUser().then(function(data){
                 app.nombre = data.data.nombre;
                 app.correo = data.data.correo;
@@ -12,6 +14,7 @@ angular.module('loginController',['userServicios'])
             });
         
         }else {
+            app.isLoggedIn = false;
             app.nombre = "";
             app.correo = "";
         }
@@ -23,11 +26,19 @@ angular.module('loginController',['userServicios'])
        app.loading = true;
        app.errorMsg = false;
 
-       Auth.login(app.loginData).then(function(data){
+       Auth.login(app.loginData).then(function(data,$window){
            if(data.data.success){
                app.loading=false;
-                $location.path('/vistaUsuario')
-    
+                alert(data.data.message);
+                $location.path('/login');
+                $timeout(function(){
+                    
+                    $location.path('/');
+                    app.loginData = '';
+            
+                },100);
+                
+                
            }else {
                app.loading = false;
                alert(data.data.message); 
@@ -35,8 +46,13 @@ angular.module('loginController',['userServicios'])
        })
     };
 
-    this.logout = function(){
+    this.logout = function($windows){
         Auth.logout();
-        $location.path('/')
+        $location.path('/logout');
+        $timeout(function(){
+          
+           $location.path('/');  
+        },100);
+                
     }
 });

@@ -66,7 +66,6 @@ function signUpFacebook(correo, nombre, id) {
 
 	usuario.save(function(error){
 		if (error) {
-			console.log("Error al crear el usuario")
 			return
 		}
 	
@@ -100,7 +99,7 @@ function signInFacebook(correo, nombre, id){
 }
 
 function tokenAuth(req, res, next){
-	console.log("ENTRE AL RETURN TOKEN auth");
+
 	var token = req.body.token || req.body.query || req.headers['x-access-token'];
 
 	if(token) {
@@ -110,6 +109,7 @@ function tokenAuth(req, res, next){
 			} else {
 				req.decoded = decoded;
 				res.send(req.decoded);
+				next();
 			}
 		});
 	}else{
@@ -118,7 +118,7 @@ function tokenAuth(req, res, next){
 }
 
 function returnToken (req,res){
-	console.log("ENTRE AL RETURN TOKEN DECODED");
+
 	res.send(req.decoded);
 }
 

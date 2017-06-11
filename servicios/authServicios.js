@@ -12,8 +12,10 @@ angular.module('userServicios', [])
   }
   authFactory.isLoggedIn = function(){
     if(AuthToken.getToken()){
+      console.log("Estoy log")
       return true;
     }else{
+      console.log("NO Estoy log")
       return false;
     }
   };

@@ -1,0 +1,130 @@
+<div id="navbar">
+    <nav class="navbar navbar-static-top navbar-inverse">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/">
+                        <img alt="" src="imagenes/Logo_VerdeClaro.png" style="width: 40px;">
+                            <strong>
+                                Ofertas JSA
+                            </strong>
+                        </img>
+                    </a>
+                </li>
+                <li>
+                    <a href="/cupones">
+                        Cupones
+                    </a>
+                </li>
+                <li>
+                    <a href="/promociones">
+                        Promociones
+                    </a>
+                </li>
+            </ul>
+            <div class="col-sm-4 col-md-5 col-md-offset-1">
+                <form class="" role="search">
+                    <div class="navbar-form input-group form-group">
+                        <input class="form-control" id="inputSearch" placeholder="Search" type="text">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search">
+                                    </i>
+                                </button>
+                            </div>
+                        </input>
+                    </div>
+                </form>
+            </div>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 0.5%;">
+                <li>
+                    <a data-toggle="modal" data-target="#contact-content" href="#">
+                        Contáctenos
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        {{log.nombre}}
+                        <span class="caret" style="margin-left: 10px;">
+                        </span>
+                        <span class="pull-left hidden-xs showopacity glyphicon glyphicon-user" style="margin-right: 10px;">
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" id="login-dp">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <strong>
+                                        Mi cuenta
+                                    </strong>
+                                    <div class="profile-userpic">
+                                        <img alt="" class="img-responsive" src="imagenes/User.png">
+                                        </img>
+                                    </div>
+                                    <div class="profile-usertitle">
+                                        <div class="profile-usertitle-name">
+                                                {{log.nombre}}
+                                        </div>
+                                        <div class="profile-usertitle-email">
+                                                {{log.correo}}
+                                        </div>
+                                    </div>
+                                    <div class="profile-userbutton">
+                                        <button class="btn btn-success btn-sm" type="button">
+                                            Actualizar
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bottom text-center">
+                                    <a href="#" ng-click="log.logout();">
+                                        <b>
+                                            Cerrar sesión
+                                        </b>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+<!-- model para el contáctenos -->
+<div class="modal fade" id="contact-content" role="dialog">
+    <div class="modal-dialog modal-lg" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
+        <div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <img src="imagenes/Logo_VerdeClaro.png" alt="" style="width: 65px;"><strong class="register-title">Contáctenos</strong>
+            </div>
+            <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
+                <div class="row">
+                    <div class="col col-md-9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37337.68693835905!2d-84.49637402380196!3d10.37057153305852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x161bb9f05a5c1351!2sInstituto+Tecnol%C3%B3gico+de+Costa+Rica!5e0!3m2!1ses!2scr!4v1496004968367" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <div class="col col-md-3 visible-md visible-lg">
+                        <div class="row" style="margin: 0 auto; height: 450px; display: inline-block; vertical-align: middle; float: none;">
+                            <div>
+                                <h4 class="contact-subtitle">Permítanos resolver sus dudas y consultas o recibir sugerencias o comentarios.</h4>
+                            </div>
+                            <div class="form-group" style="margin-top: 20%;">
+                                <input id="name" name="name" type="text" placeholder="Tu nombre" class="form-control">
+                                <br>
+                                <input id="email" name="email" type="text" placeholder="Tu correo" class="form-control">
+                                <br>
+                                <textarea class="form-control" id="message" name="message" placeholder="Por favor digita quí tu mensaje..." rows="7"></textarea>
+                                <br>
+                                <div style="text-align: right; width: 100%; margin-top: 10%;">
+                                    <button type="submit" class="register-register">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                                          
+</div>

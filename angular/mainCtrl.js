@@ -1,12 +1,11 @@
 
-
 angular.module('mainController', ['ui.bootstrap'])
 
 .controller('mainCtrl', function($scope, $http) {
-	console.log("Entre al mainCtrl")
+	var app = this;
 	$scope.posts = [];
 	$scope.currentPage = 1;
-	$scope.pageSize = 12;
+	$scope.pageSize = 16;
 
 	$http.get('/titicupones').then(function(data) {
 		$scope.posts = data.data.datos;
@@ -14,15 +13,27 @@ angular.module('mainController', ['ui.bootstrap'])
 		$scope.postSize = $scope.posts.lenght
 	});
 
+	
+	this.deleteDato = function(nombre){
+		console.log("SSISISSSIISISISSISSIS");
+		$http.delete('/deleteUser',this.nombre).then(function(data) {
+			if(data.data.success){
+				console.log("Se borro")
+			}else{	
+				console.log("No se borro")
+			}
+		});	
+	}
+
+
 
 })
 
 
 .controller('mainYuplonCtrl', function($scope, $http) {
-	console.log("Entre a mainYuplonCtrl")
 	$scope.posts = [];
 	$scope.currentPage = 1;
-	$scope.pageSize = 12;
+	$scope.pageSize = 16;
 
 	$http.get('/yuplones').then(function(data) {
 		$scope.posts = data.data.datos;

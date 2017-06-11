@@ -44,6 +44,8 @@ app.post('/login', usuarioCtrl.signIn)
 app.post('/userLogIn', usuarioCtrl.tokenAuth)
 
 
+app.delete('/deleteUser', titicuponesCtrl.deleteDato)
+
 app.post('/private', autentificacion, (req,res) => {
 	res.status(200).send({message: 'Tienes acceso'})
 	//res.send(req.decoded);
@@ -52,9 +54,13 @@ app.post('/private', autentificacion, (req,res) => {
 
 
 //Cargar el indice al servidor 
+/*
 app.get('*', function (req, res) {
 	res.sendFile('/views/index.html', {root: path.join(__dirname, '')})
 })
-
+*/
+app.get('*', function (req, res) {
+	res.sendFile(path.join(__dirname + '/views/index.html'));
+});
 
 module.exports = app

@@ -64,10 +64,22 @@ function getTopYuplones(req, res) {
 		
 	})
 }
+
+function deleteDato(req, res){
+	console.log("Estoy borrarndo un doto")
+	var tituloDato = req.body.nombre;
+	Datos.findOneAndRemove({titulo: tituloDato}, (err,dato) => {
+		if(err) throw err;
+
+		res.json({success:true});
+
+	})
+}
 module.exports = {
 	getTiticupones,
 	getYuplones,
 	getTopTiticupones,
-	getTopYuplones
+	getTopYuplones,
+	deleteDato
 
 }
