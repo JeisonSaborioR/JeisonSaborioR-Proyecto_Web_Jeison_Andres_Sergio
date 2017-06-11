@@ -1,22 +1,23 @@
 
 var servicios = require('../servicios/servicios')
+var config = require('../config')
 
 function isAuth(req, res, next) {
-	if (!req.headers.authorization) {
-		return res.status(403).send({message:'No tienes authorizatión'})
+	
+	var token = req.body.token || req.body.query || req.headers['x-access-token'];
+
+	if(token) {
+		jwt.verify(token,config.TOKEN_SECRETO, function(err, decoded){
+			if(err) {
+				res.json({success: false, message: 'Token invalid'});
+			} else {
+				req.decoded = decoded;
+				next();
+			}
+		});
+	}else{
+		res.json({success:false, message:'No token provided'});
 	}
-	const token = req.headers.authorization.split('')[1]
-
-
-	servicios.decodificarToken(token)
-		.then(response => {
-			req.user = response
-			next()
-		})
-
-		.catch(response => {
-			res.status(response.status)
-		})
 }
 
 

@@ -41,17 +41,18 @@ app.get('/topTiticupones', titicuponesCtrl.getTopTiticupones)
 app.get('/topYuplones', titicuponesCtrl.getTopYuplones)
 app.post('/registro', usuarioCtrl.signUp)
 app.post('/login', usuarioCtrl.signIn)
+app.post('/userLogIn', usuarioCtrl.tokenAuth)
 
 
-
-app.get('/private', autentificacion, (req,res) => {
+app.post('/private', autentificacion, (req,res) => {
 	res.status(200).send({message: 'Tienes acceso'})
+	//res.send(req.decoded);
 })
 
 
 
 //Cargar el indice al servidor 
-app.get('', function (req, res) {
+app.get('*', function (req, res) {
 	res.sendFile('/views/index.html', {root: path.join(__dirname, '')})
 })
 

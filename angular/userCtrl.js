@@ -11,10 +11,7 @@ angular.module('userController',[])
             }else{
                 alert(data.data.message); 
                
-            }
-             
-             
-            
+            }    
         });
     };
 });

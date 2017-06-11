@@ -27,7 +27,7 @@
             </link>
         </link>
     </head>
-    <body id="body">
+    <body id="body" ng-controller="loginCtrl as log">
         <header>
             <div id="navbar">
                 <nav class="navbar navbar-static-top navbar-inverse">
@@ -43,12 +43,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/cupones">
                                     Cupones
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/promociones">
                                     Promociones
                                 </a>
                             </li>
@@ -75,7 +75,7 @@
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    Username
+                                    {{log.nombre}}
                                     <span class="caret" style="margin-left: 10px;">
                                     </span>
                                     <span class="pull-left hidden-xs showopacity glyphicon glyphicon-user" style="margin-right: 10px;">
@@ -94,10 +94,10 @@
                                                 </div>
                                                 <div class="profile-usertitle">
                                                     <div class="profile-usertitle-name">
-                                                        Sergio Araya Zúñiga
+                                                          {{log.nombre}}
                                                     </div>
                                                     <div class="profile-usertitle-email">
-                                                        sergaraya22@gmail.com
+                                                          {{log.correo}}
                                                     </div>
                                                 </div>
                                                 <div class="profile-userbutton">
@@ -107,9 +107,9 @@
                                                 </div>
                                             </div>
                                             <div class="bottom text-center">
-                                                <a href="#">
+                                                <a href="#" ng-click="log.logout();">
                                                     <b>
-                                                        Salir
+                                                        Cerrar sesión
                                                     </b>
                                                 </a>
                                             </div>
@@ -797,7 +797,7 @@
                     <div class="col-md-3 col-sm-6 footer-col">
                         <div class="logofooter">
                             <a href="#">
-                                <img "="" class="logo" src="imagenes/Logo_VerdeClaro.png"/>
+                                <img "=" class="logo" src="imagenes/Logo_VerdeClaro.png"/>
                             </a>
                         </div>
                         <p>
@@ -957,6 +957,7 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
         </script>
+         <script src="angular/loginCtrl.js"></script>
         <script src="https://code.angularjs.org/1.6.4/angular-route.js">
         </script>
         <!-- Latest compiled and minified JavaScript -->
