@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container"  ng-controller="actionData as main">
     <div class="row" style="margin-top: 7%;">
         <!--content row-->
         <div class="col col-md-9">
@@ -104,11 +104,10 @@
                     <div class="aditional-info">
                         <ul class="small-event-list">
                             <li>
-                            
                                 <img ng-src="{{post.imagen}}">
                                     <div class="info">
                                         <div class="center-info">
-                                            <a class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;">
+                                            <a ng-click="main.loadInfoModal(post.titulo, post.precio, post.fechaVencimiento, post.imagen);" class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;">
                                                 {{post.titulo}}
                                             </a>
                                         </div>
@@ -121,78 +120,80 @@
                                         <p>
                                         </p>
                                     </div>
-                                    <!-- model para ver los detalles del oferta -->
-                                    <div class="modal fade" id="item-info" role="dialog">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-offer">
-                                                <div class="modal-header">
-                                                    <button class="close" data-dismiss="modal" type="button">
-                                                        ×
-                                                    </button>
-                                                    <div class="row">
-                                                        <div class="col col-md-12">
-                                                            <h4 class="modal-title">
-                                                                {{post.titulo}}
-                                                            </h4>
-                                                        </div>
+                                  
+                                </img>
+                            </li>
+                        </ul>
+                            <!-- model para ver los detalles del oferta -->
+                            <div class="modal fade" id="item-info" role="dialog">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-offer">
+                                        <div class="modal-header">
+                                            <button class="close" data-dismiss="modal" type="button">
+                                                ×
+                                            </button>
+                                            <div class="row">
+                                                <div class="col col-md-12">
+                                                    <h4 class="modal-title">
+                                                        {{main.title}}
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body" id="offer">
+                                            <div class="row">
+                                                <div class="col col-md-8">
+                                                    <div>
+                                                        <img src="{{main.image}}">
+                                                        </img>
                                                     </div>
                                                 </div>
-                                                <div class="modal-body" id="offer">
-                                                    <div class="row">
-                                                        <div class="col col-md-8">
+                                                <div class="visible-md visible-lg col col-md-4">
+                                                    <div class="offer-info">
+                                                        <br>
                                                             <div>
-                                                                <img src="{{post.imagen}}">
-                                                                </img>
+                                                                <h3 class="new-price">
+                                                                    Precio Actual: {{main.price}}
+                                                                </h3>
+                                                                <h4 class="old-price">
+                                                                    Precio Anterior
+                                                                </h4>
+                                                                <hr style="color: #000;">
+                                                                </hr>
                                                             </div>
-                                                        </div>
-                                                        <div class="visible-md visible-lg col col-md-4">
-                                                            <div class="offer-info">
+                                                            <br>
+                                                                <div class="offer-options">
+                                                                    <button class="buy" data-dismiss="modal" style="min-width: 160px; margin-bottom: 8%;" type="button">
+                                                                        Comprar
+                                                                    </button>
+                                                                    <button class="gift" data-dismiss="modal" style="min-width: 160px;" type="button">
+                                                                        Regalar a un amigo
+                                                                    </button>
+                                                                </div>
                                                                 <br>
-                                                                    <div>
-                                                                        <h3 class="new-price">
-                                                                            Precio Actual
-                                                                        </h3>
-                                                                        <h4 class="old-price">
-                                                                            Precio Anterior
-                                                                        </h4>
-                                                                        <hr style="color: #000;">
-                                                                        </hr>
-                                                                    </div>
-                                                                    <br>
-                                                                        <div class="offer-options">
-                                                                            <button class="buy" data-dismiss="modal" style="min-width: 160px; margin-bottom: 8%;" type="button">
-                                                                                Comprar
-                                                                            </button>
-                                                                            <button class="gift" data-dismiss="modal" style="min-width: 160px;" type="button">
-                                                                                Regalar a un amigo
-                                                                            </button>
+                                                                    <hr style="color: #000;">
+                                                                        <div>
+                                                                            <h3 class="times-sold">
+                                                                                Vendidos
+                                                                            </h3>
+                                                                            <h4 class="offer-end">
+                                                                                La oferta termina {{main.birthDay}}
+                                                                            </h4>
                                                                         </div>
                                                                         <br>
-                                                                            <hr style="color: #000;">
-                                                                                <div>
-                                                                                    <h3 class="times-sold">
-                                                                                        Vendidos
-                                                                                    </h3>
-                                                                                    <h4 class="offer-end">
-                                                                                        La oferta termina {{post.fechaVencimiento}}
-                                                                                    </h4>
-                                                                                </div>
-                                                                                <br>
-                                                                                </br>
-                                                                            </hr>
                                                                         </br>
-                                                                    </br>
+                                                                    </hr>
                                                                 </br>
-                                                            </div>
-                                                        </div>
+                                                            </br>
+                                                        </br>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </img>
-                            </li>
-                        </ul>
+                                </div>
+                            </div>
+
                     </div>
                 </div>
             </div>
@@ -215,7 +216,7 @@
                                  <img ng-src="{{post.imagen}}">
                                     <div class="info">
                                         <div class="center-info-p">
-                                            <a class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;">
+                                            <a  ng-click="main.loadInfoModal(post.titulo, post.precio, post.fechaVencimiento, post.imagen);" class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;">
                                                 {{post.titulo}}
                                             </a>
                                         </div>

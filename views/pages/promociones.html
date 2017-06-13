@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="container" ng-controller="actionData as main">
     <!-- model para insertar item -->
     <div class="modal fade" id="item-insert" role="dialog">
         <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
@@ -185,12 +185,12 @@
                 <div class="col" style="height: 15px;">
                 </div>
             </div>
-            <div class="row" ng-controller="mainYuplonCtrl">
+            <div class="row" ng-controller="mainYuplonCtrl" >
                 <div class="col col-md-3" ng-repeat="post in posts  | pagination: (currentPage - 1) * pageSize | limitTo:pageSize">
                     <div class="aditional-info">
                         <ul class="small-event-list">
                             <li>
-                                <div class="row item-options-p"  ng-show="log.tipo == 'administrador'">
+                                <div class="row item-options-p"  ng-show="log.tipo == 'administrador'"  ng-show="log.isLoggedIn">
                                     <div class="col-md-12 opt">
                                         <div class="col col-md-4">
                                             <a data-target="#item-update" data-toggle="modal" href="#"><i class="fa fa-pencil options" aria-hidden="true"></i></a>
@@ -206,7 +206,7 @@
                                 <img ng-src="{{post.imagen}}">
                                     <div class="info">
                                         <div class="center-info-p">
-                                            <a class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;">
+                                            <a ng-click="main.loadInfoModal(post.titulo, post.precio, post.fechaVencimiento, post.imagen);" class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;">
                                                 {{post.titulo}}
                                             </a>
                                         </div>
@@ -230,7 +230,7 @@
                                                     <div class="row">
                                                         <div class="col col-md-12">
                                                             <h4 class="modal-title">
-                                                                {{post.titulo}}
+                                                                {{main.title}}
                                                             </h4>
                                                         </div>
                                                     </div>
@@ -239,7 +239,7 @@
                                                     <div class="row">
                                                         <div class="col col-md-8">
                                                             <div>
-                                                                <img src="{{post.imagen}}">
+                                                                <img src="{{main.image}}">
                                                                 </img>
                                                             </div>
                                                         </div>
@@ -248,7 +248,7 @@
                                                                 <br>
                                                                     <div>
                                                                         <h3 class="new-price">
-                                                                            Precio Actual
+                                                                            Precio Actual: {{main.price}} 
                                                                         </h3>
                                                                         <h4 class="old-price">
                                                                             Precio Anterior
@@ -272,7 +272,7 @@
                                                                                         Vendidos
                                                                                     </h3>
                                                                                     <h4 class="offer-end">
-                                                                                        La oferta termina {{post.fechaVencimiento}}
+                                                                                        La oferta termina {{main.birthDay}}
                                                                                     </h4>
                                                                                 </div>
                                                                                 <br>

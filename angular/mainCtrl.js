@@ -2,10 +2,10 @@
 angular.module('mainController', ['ui.bootstrap'])
 
 .controller('mainCtrl', function($scope, $http) {
-	var app = this;
+
 	$scope.posts = [];
 	$scope.currentPage = 1;
-	$scope.pageSize = 16;
+	$scope.pageSize = 20;
 
 	$http.get('/titicupones').then(function(data) {
 		$scope.posts = data.data.datos;
@@ -13,22 +13,55 @@ angular.module('mainController', ['ui.bootstrap'])
 		$scope.postSize = $scope.posts.lenght
 	});
 
+
+
+})
+
+
+
+
+.controller('actionData', function($scope,$http){
+    var app = this;
 	
-	this.deleteDato = function(nombre){
-		console.log("SSISISSSIISISISSISSIS");
-		$http.delete('/deleteUser',this.nombre).then(function(data) {
+	this.loadTitle = function(titulo){
+		app.title = titulo;
+		console.log(app.title);
+		/*
+		$http.delete('/deleteUser',this.regData).then(function(data) {
 			if(data.data.success){
 				console.log("Se borro")
 			}else{	
 				console.log("No se borro")
 			}
-		});	
+		});
+		*/
+	
 	}
 
+	this.deleteDato = function(){
+		console.log("Voy a borrar a esa mierda");
+		console.log(app.title);
+		/*
+		$http.delete('/deleteUser',this.regData).then(function(data) {
+			if(data.data.success){
+				console.log("Se borro")
+			}else{	
+				console.log("No se borro")
+			}
+		});
+		*/
+	
+	}
 
-
+	this.loadInfoModal = function(titulo, precio, fechaVencimiento, imagen){
+		console.log("Entre al load")
+		app.title = titulo;
+		app.price = precio;
+		app.birthDay = fechaVencimiento;
+		app.image = imagen;
+	}
+    
 })
-
 
 .controller('mainYuplonCtrl', function($scope, $http) {
 	$scope.posts = [];

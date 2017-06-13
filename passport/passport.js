@@ -17,7 +17,7 @@ module.exports = function(app, passport) {
 
 	passport.serializeUser(function(user, done) {
 		token = jwt.sign({username:user.username, email:user.email}, config.TOKEN_SECRETO, {expiresIn:'24h'});
-		
+		console.log("LOG CON FACEBOOK")
 		done(null, user.id);
 	});
 
@@ -35,14 +35,15 @@ module.exports = function(app, passport) {
 
 	  },
 	  function(accessToken, refreshToken, profile, done) {
-	  	//console.log(profile)
-	     
-	  	usuarioCtrl.signInFacebook(profile._json.email, profile._json.name,profile._json.id)
+	  	//console.log(profile._json.email)
+	    console.log(profile)  
+	  	//usuarioCtrl.signInFacebook(profile._json.email, profile._json.name,profile._json)
 
 	   	//app.get('/', usuarioCtrl.signIn)
 	    done(null, profile)
 	  }
 	));
+	/*
     passport.use(new GoogleStrategy({
         clientID: '68770455084-5ldgklb9qgdm16vsf891gl7toqgvm641.apps.googleusercontent.com',
         clientSecret: 'Ot2f5FKA0-BS_SAJD9VvnC7Y',
@@ -54,21 +55,21 @@ module.exports = function(app, passport) {
         done(null, profile)
       }
     ));
-    
-    
+    */
+    /*
     app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
 
     app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
-        //res.redirect('/google/'+token);
-				 $location.path('/vistaUsuario')
+      	res.redirect('/google/'+token);
+				//$location.path('/vistaUsuario')
     });
-    
+    */
     
     
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/login' }), function(req,res) {
      
-		//res.redirect('/facebook/' + token);
-		 $location.path('/vistaUsuario')
+		res.redirect('/facebook/' + token);
+		 //$location.path('/vistaUsuario')
 	});
 	                                   
 	app.get('/auth/facebook',passport.authenticate('facebook', { scope: 'email' }));

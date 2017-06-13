@@ -58,7 +58,7 @@ app.config(function($routeProvider, $locationProvider){
     
 });
 
-
+/*
 app.run(['$rootScope','Auth',function($rootScope, Auth, $location){
 	$rootScope.$on('$routeChangeStart', function(event, next, current){
 		if(next.$$route.authenticated == true){
@@ -75,3 +75,4 @@ app.run(['$rootScope','Auth',function($rootScope, Auth, $location){
 		}
 	});
 }]);
+*/
