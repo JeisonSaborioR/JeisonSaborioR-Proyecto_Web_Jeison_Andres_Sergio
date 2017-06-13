@@ -57,20 +57,26 @@ function signIn (req,res){
 
 
 function signUpFacebook(correo, nombre, id) {
+	
 	const usuario = new Usuario({
 
 		correo: correo,
 		nombre: nombre,
+		apellidos: nombre,
+		tipo: "usuario",
 		password: id
 	})
 
 	usuario.save(function(error){
 		if (error) {
-			return
+			console.log("Error no se porque")
+		}else{
+			
+			console.log('Usuario creado correctamente')
+
 		}
 	
-		console.log('Usuario creado correctamente')
-		servicios.crearToken(usuario)
+		//servicios.crearToken(usuario)
 	})
 
 }
@@ -79,17 +85,13 @@ function signUpFacebook(correo, nombre, id) {
 function signInFacebook(correo, nombre, id){
 	Usuario.find({correo: correo}, (err,usuario) => {
 		if(err) {
-			console.log("Error al loguear")
+			
 			return
 		}
 
 		if (usuario.length == 0)  {
 			signUpFacebook(correo, nombre, id)
 		}else{
-
-			console.log('Te has logueado correctamente')
-		
-	
 			servicios.crearToken(usuario)
 		}
 		
@@ -130,4 +132,5 @@ module.exports = {
 	signIn,
 	returnToken,
 	tokenAuth,
+	
 }

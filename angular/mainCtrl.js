@@ -9,52 +9,57 @@ angular.module('mainController', ['ui.bootstrap'])
 
 	$http.get('/titicupones').then(function(data) {
 		$scope.posts = data.data.datos;
-	
 		$scope.postSize = $scope.posts.lenght
 	});
-
-
-
 })
 
-
-
-
-.controller('actionData', function($scope,$http){
+.controller('actionData', function($http,$location,$timeout){
     var app = this;
 	
-	this.loadTitle = function(titulo){
-		app.title = titulo;
-		console.log(app.title);
-		/*
-		$http.delete('/deleteUser',this.regData).then(function(data) {
+	this.loadTitle = function(title){
+		this.title = title;
+
+	}
+
+
+	this.deleteDato = function(){
+		
+		$http.delete('/deleteUser/'+this.title).then(function(data) {
 			if(data.data.success){
-				console.log("Se borro")
+				 alert(data.data.message);
+			
+				$location.path('/login');
+                $timeout(function(){
+                  
+                    $location.path('/cupones');
+                },500);
 			}else{	
-				console.log("No se borro")
+			 	alert(data.data.message);
 			}
 		});
-		*/
+		
 	
 	}
 
-	this.deleteDato = function(){
-		console.log("Voy a borrar a esa mierda");
-		console.log(app.title);
-		/*
-		$http.delete('/deleteUser',this.regData).then(function(data) {
+	this.deleteDatoPromo = function(){
+		
+		$http.delete('/deleteUser/'+this.title).then(function(data) {
 			if(data.data.success){
-				console.log("Se borro")
+				alert(data.data.message);
+				$location.path('/login');
+				$timeout(function(){
+					
+					$location.path('/promociones');
+				},500);
 			}else{	
-				console.log("No se borro")
+			 	alert(data.data.message);
 			}
 		});
-		*/
+		
 	
 	}
 
 	this.loadInfoModal = function(titulo, precio, fechaVencimiento, imagen){
-		console.log("Entre al load")
 		app.title = titulo;
 		app.price = precio;
 		app.birthDay = fechaVencimiento;
@@ -69,15 +74,9 @@ angular.module('mainController', ['ui.bootstrap'])
 	$scope.pageSize = 16;
 
 	$http.get('/yuplones').then(function(data) {
-		$scope.posts = data.data.datos;
-		
-			
+		$scope.posts = data.data.datos
 		$scope.postSize = $scope.posts.lenght
-		console.log($scope.postSize)
-
-	});
-
-
+	})
 })
 
 
@@ -94,8 +93,6 @@ angular.module('mainController', ['ui.bootstrap'])
 	$scope.posts = [];
 
 	$http.get('/topYuplones').then(function(data) {
-		console.log(data)
-	
 		$scope.posts = data.data.datos;
 
 	});
@@ -108,8 +105,6 @@ angular.module('mainController', ['ui.bootstrap'])
 	$scope.posts = [];
 
 	$http.get('/topTiticupones').then(function(data) {
-		console.log(data)
-	
 		$scope.posts = data.data.datos;
 
 	});

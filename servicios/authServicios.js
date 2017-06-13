@@ -20,6 +20,13 @@ angular.module('userServicios', [])
     }
   };
 
+  authFactory.facebook = function(token){
+      AuthToken.setToken(token); 
+  }
+
+  authFactory.google = function(token){
+      AuthToken.setToken(token); 
+  }
 
   authFactory.getUser = function(){
     

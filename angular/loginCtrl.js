@@ -1,6 +1,6 @@
 angular.module('loginController',['userServicios'])
 
-.controller('loginCtrl', function(Auth,$timeout,$location,$rootScope){
+.controller('loginCtrl', function(Auth,$timeout,$location,$rootScope,$window){
     
     var app = this;
     $rootScope.$on('$routeChangeStart',function(){
@@ -8,6 +8,7 @@ angular.module('loginController',['userServicios'])
         if(Auth.isLoggedIn()){
             app.isLoggedIn = true;
             Auth.getUser().then(function(data){
+               
                 app.nombre = data.data.nombre;
                 app.correo = data.data.correo;
                 app.tipo = data.data.tipo;
@@ -17,8 +18,21 @@ angular.module('loginController',['userServicios'])
             app.isLoggedIn = false;
             app.nombre = "";
             app.correo = "";
+            app.tipo = "";
         }
+
+        if ($location.hash() == '_=_') $location.hash(null);
     });
+
+
+    this.facebook = function(){
+        $window.location = $window.location.protocol + '//' + $window.location.host + '/auth/facebook';
+    }
+    
+
+    this.google = function(){
+        $window.location = $window.location.protocol + '//' + $window.location.host + '/auth/google';
+    }
     
 
     this.doLogin = function(loginData){
@@ -32,10 +46,8 @@ angular.module('loginController',['userServicios'])
                 alert(data.data.message);
                 $location.path('/login');
                 $timeout(function(){
-                    
+                  
                     $location.path('/');
-                    app.loginData = '';
-            
                 },100);
                 
                 
@@ -48,6 +60,7 @@ angular.module('loginController',['userServicios'])
 
     this.logout = function($windows){
         Auth.logout();
+     
         $location.path('/logout');
         $timeout(function(){
           
@@ -55,4 +68,16 @@ angular.module('loginController',['userServicios'])
         },100);
                 
     }
-});
+})
+
+.controller('facebookCtrl', function($routeParams,Auth,$location){
+    Auth.facebook($routeParams.token);
+    $location.path('/')
+})
+
+
+.controller('googleCtrl', function($routeParams,Auth,$location){
+   
+    Auth.google($routeParams.token);
+    $location.path('/')
+})

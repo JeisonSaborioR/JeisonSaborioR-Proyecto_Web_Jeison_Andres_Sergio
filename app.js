@@ -6,6 +6,8 @@ var app = express()
 var bodyParser = require('body-parser');
 var path = require('path')
 
+var passport = require('passport')
+var social = require('./passport/passport')(app, passport)
 
 
 
@@ -29,7 +31,7 @@ app.use('/imagenes', express.static(__dirname + '/imagenes'))
 app.use('/views', express.static(__dirname + '/views'))
 app.use('/servicios', express.static(__dirname + '/servicios'))
 app.use('/controllers', express.static(__dirname + '/controllers'))
-
+app.use('/passport', express.static(__dirname + '/passport'))
 
 
 
@@ -44,7 +46,7 @@ app.post('/login', usuarioCtrl.signIn)
 app.post('/userLogIn', usuarioCtrl.tokenAuth)
 
 
-app.delete('/deleteUser', titicuponesCtrl.deleteDato)
+app.delete('/deleteUser/:title', titicuponesCtrl.deleteDato)
 
 app.post('/private', autentificacion, (req,res) => {
 	res.status(200).send({message: 'Tienes acceso'})

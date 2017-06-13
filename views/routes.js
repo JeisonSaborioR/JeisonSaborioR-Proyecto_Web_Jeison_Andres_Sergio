@@ -18,13 +18,15 @@ app.config(function($routeProvider, $locationProvider){
 		authenticated: true
 	})
     .when('/facebook/:token', {
-		templateUrl:'views/pages/contactenos.html',
+		templateUrl:'views/pages/social.html',
         controller: 'facebookCtrl',
         controllerAs: 'facebook',
 		authenticated:false
 	})
     .when('/google/:token', {
-        templateUrl:'views/pages/contactenos.html',
+        templateUrl:'views/pages/social.html',
+		controller: 'googleCtrl',
+        controllerAs: 'google',
 		authenticated:false
     })
     .when('/cupones', {

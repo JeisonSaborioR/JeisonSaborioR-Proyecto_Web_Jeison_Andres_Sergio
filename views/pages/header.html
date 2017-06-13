@@ -1,4 +1,4 @@
-<div id="navbar"   >
+<div id="navbar">
     <nav class="navbar navbar-static-top navbar-inverse">
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -37,6 +37,7 @@
                     </div>
                 </form>
             </div>
+
             <ul class="nav navbar-nav navbar-right" style="margin-right: 0.5%;">
                 <li>
                     <a data-toggle="modal" data-target="#contact-content" href="#">Contáctenos</a>
@@ -57,23 +58,27 @@
                                         Login via
                                     </strong>
                                     <div class="social-buttons">
-                                         
+                                        
+                    
+                                         <!--
                                         <a class="btn btn-fb" href="/auth/facebook" target="_blank">
                                             <i class="fa fa-facebook">
                                             </i>
                                             Facebook
                                         </a>
-                                       
-                                          <!--
-                                        <button type="button" class="btn btn-fb"><i class="fa fa-facebook " ng-click=""></i> Facebook</button>
-                                        <button type="button" class="btn btn-gplus"><i class="fa fa-google-plus " ></i> Google</button>
-                                        -->
-                                         
+
                                         <a class="btn  btn-gplus" href="/auth/google" target="_blank">
                                             <i class="fa fa-google-plus">
                                             </i>
                                             Google
                                         </a>
+                                       -->
+                                       
+                                        <button type="button" class="btn btn-fb" ng-click="log.facebook();"><i class="fa fa-facebook " ></i> Facebook</button>
+                                        <button type="button" class="btn btn-gplus" ng-click="log.google();"><i class="fa fa-google-plus " ></i> Google</button>
+                                        
+                                         
+                                      
                                        
                                     </div>
                                     <form accept-charset="UTF-8"  class="form" id="login-nav"  role="form" method="POST" ng-submit="log.doLogin(loginData);">
@@ -123,6 +128,8 @@
                     </ul>
                 </li>
             </ul>
+
+            
         </div>
     </nav>
 </div>
