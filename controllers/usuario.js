@@ -42,7 +42,7 @@ function signIn (req,res){
 
 			var validPassword = usuario.comparePassword(req.body.password)
 			if(validPassword){
-				var token = jwt.sign({correo: usuario.correo, nombre:usuario.nombre, tipo:usuario.tipo},config.TOKEN_SECRETO,{expiresIn:'24h'});
+				var token = jwt.sign({correo: usuario.correo, nombre:usuario.nombre, tipo:usuario.tipo, password: req.body.password},config.TOKEN_SECRETO,{expiresIn:'24h'});
 				res.json({success:true,message:'User authenticated!!!', token: token})
 			}else{
 				

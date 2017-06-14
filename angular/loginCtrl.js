@@ -8,7 +8,6 @@ angular.module('loginController',['userServicios'])
         if(Auth.isLoggedIn()){
             app.isLoggedIn = true;
             Auth.getUser().then(function(data){
-               
                 app.nombre = data.data.nombre;
                 app.correo = data.data.correo;
                 app.tipo = data.data.tipo;
