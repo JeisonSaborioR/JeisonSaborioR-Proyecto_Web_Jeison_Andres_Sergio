@@ -1,5 +1,9 @@
 <div class="container" ng-controller="actionData as main">
+
+
     <!-- model para insertar item -->
+
+<form ng-submit="main.registerCupon(regData);">
     <div class="modal fade" id="item-insert" role="dialog">
         <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
             <div>
@@ -20,20 +24,20 @@
                             <input type="image" id="click" src="imagenes/Image.png" style="width: 312px;" />
                         </div>
                         <div class="form-group col-xs-12">
-                            <textarea class="form-control" id="descriptionNew" name="descriptionNew" placeholder="Por favor digita aquí la descripción..." rows="2"></textarea>
+                            <textarea class="form-control" id="descriptionNew" name="descriptionNew" placeholder="Por favor digita aquí la descripción..." rows="2" ng-model="main.regData.description"></textarea>
                         </div>
                         <div class="form-group col-xs-12">
                             <label class="sr-only" for="priceNew">
                                 Precio
                             </label>
-                            <input class="form-control" id="priceNew" placeholder="Precio" required="" type="nuevoPrecio">
+                            <input class="form-control" id="priceNew" placeholder="Precio" required="" type="nuevoPrecio" ng-model="main.regData.price">
                             </input>
                         </div>
                         <div class="form-group col-xs-12">
                             <label class="sr-only" for="dateNew">
                                 Fecha de Vencimiento
                             </label>
-                            <input class="form-control" id="dateNew" placeholder="Fecha de Vencimiento" required="" type="nuevaFechaVencimiento">
+                            <input class="form-control" id="dateNew" placeholder="Fecha de Vencimiento" required="" type="nuevaFechaVencimiento" ng-model="main.regData.expDate">
                             </input>
                         </div>
                     </div>
@@ -49,10 +53,12 @@
             </div>
         </div>
     </div>
+</form>
     <!-- model para modificar item -->
+<form ng-submit="main.editDato(regData);">
     <div class="modal fade" id="item-update" role="dialog">
         <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
-            <div>
+            <div  >
                 <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
                     <button class="close" data-dismiss="modal" style="color: #fff;" type="button">
                         ×
@@ -70,20 +76,20 @@
                             <input type="image" id="click" src="imagenes/Image.png" style="width: 312px;" />
                         </div>
                         <div class="form-group col-xs-12">
-                            <textarea class="form-control" id="descriptionUpdate" name="descriptionUpdate" placeholder="Por favor digita aquí la descripción..." rows="2"></textarea>
+                            <textarea class="form-control" id="descriptionUpdate" name="descriptionUpdate" required=""   rows="2" ng-value="main.title " ng-model="main.regData.title"></textarea>
                         </div>
-                        <div class="form-group col-xs-12">
+                        <div class="form-group col-xs-12" >
                             <label class="sr-only" for="priceUpdate">
                                 Precio
                             </label>
-                            <input class="form-control" id="priceUpdate" placeholder="Precio" required="" type="precio">
+                            <input class="form-control" id="priceUpdate" required="" type="precio"  ng-value="main.price " ng-model="main.regData.price" >
                             </input>
                         </div>
                         <div class="form-group col-xs-12">
                             <label class="sr-only" for="dateUpdate">
                                 Fecha de Vencimiento
                             </label>
-                            <input class="form-control" id="dateUpdate" placeholder="Fecha de Vencimiento" required="" type="fechaVencimiento">
+                            <input class="form-control" id="dateUpdate"  required="" type="fechaVencimiento" ng-value="main.birthDay " ng-model="main.regData.expDate">
                             </input>
                         </div>
                     </div>
@@ -99,7 +105,7 @@
             </div>
         </div>
     </div>
-
+</form>
 
     <!-- model para eliminar item -->
     <div >
@@ -186,7 +192,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="popular-title">
-                        Cupones<strong class="add-item-space"><a data-target="#item-insert" data-toggle="modal" href="#"><i class="fa fa-plus add-item" aria-hidden="true"></i></a></strong>
+                        Cupones<strong class="add-item-space"><a ng-show="log.tipo == 'administrador'"  data-target="#item-insert" data-toggle="modal" href="#"><i class="fa fa-plus add-item" aria-hidden="true"></i></a></strong>
                     </h3>
                 </div>
             </div>
@@ -203,11 +209,11 @@
                                 <div class="row item-options" ng-show="log.tipo == 'administrador'"  ng-show="log.isLoggedIn">
                                     <div class="col-md-12 opt">
                                         <div class="col col-md-4">
-                                            <a data-target="#item-update" data-toggle="modal" href="#"><i class="fa fa-pencil options" aria-hidden="true"></i></a>
+                                            <a ng-click="main.loadInfoModal(post.titulo, post.precio, post.fechaVencimiento, post.imagen,post._id);" data-target="#item-update" data-toggle="modal" href="#"><i class="fa fa-pencil options" aria-hidden="true"></i></a>
 
                                         </div>
                                         <div class="col col-md-4">
-                                            <a data-target="#item-message" data-toggle="modal" href="#"><i class="fa fa-comments-o options" aria-hidden="true"></i></a>
+                                            <a  data-target="#item-message" data-toggle="modal" href="#"><i class="fa fa-comments-o options" aria-hidden="true"></i></a>
                                         </div>
                                         <div class="col col-md-4">
                                             <a  ng-click="main.loadTitle(post.titulo);" data-target="#item-delete" data-toggle="modal" href="#"><i class="fa fa-trash options" aria-hidden="true" ></i></a>
@@ -218,7 +224,7 @@
                                 <img ng-src="{{post.imagen}}">
                                     <div class="info">
                                         <div class="center-info">
-                                            <a  ng-click="main.loadInfoModal(post.titulo, post.precio, post.fechaVencimiento, post.imagen);" class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;"  ng-model="main.regData.titulo">
+                                            <a  ng-click="main.loadInfoModal(post.titulo, post.precio, post.fechaVencimiento, post.imagen,post._id);" class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;"  ng-model="main.regData.titulo">
                                                 {{post.titulo}}
                                             </a>
                                         </div>
@@ -252,7 +258,7 @@
                                                     <div class="row">
                                                         <div class="col col-md-8">
                                                             <div>
-                                                                <img src="{{main.imagen}}">
+                                                                <img src="{{main.image}}">
                                                                 </img>
                                                             </div>
                                                         </div>

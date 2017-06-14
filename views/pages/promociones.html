@@ -1,5 +1,6 @@
 <div class="container" ng-controller="actionData as main">
     <!-- model para insertar item -->
+<form ng-submit="main.registerpromo(regData);">
     <div class="modal fade" id="item-insert" role="dialog">
         <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
             <div>
@@ -20,20 +21,20 @@
                             <input type="image" id="click" src="imagenes/Image.png" style="width: 312px;" />
                         </div>
                         <div class="form-group col-xs-12">
-                            <textarea class="form-control" id="descriptionNew" name="descriptionNew" placeholder="Por favor digita aquí la descripción..." rows="2"></textarea>
+                            <textarea class="form-control" id="descriptionNew" name="descriptionNew" placeholder="Por favor digita aquí la descripción..." rows="2" ng-model="main.regData.description"></textarea>
                         </div>
                         <div class="form-group col-xs-12">
                             <label class="sr-only" for="priceNew">
                                 Precio
                             </label>
-                            <input class="form-control" id="priceNew" placeholder="Precio" required="" type="nuevoPrecio">
+                            <input class="form-control" id="priceNew" placeholder="Precio" required="" type="nuevoPrecio" ng-model="main.regData.price">
                             </input>
                         </div>
                         <div class="form-group col-xs-12">
                             <label class="sr-only" for="dateNew">
                                 Fecha de Vencimiento
                             </label>
-                            <input class="form-control" id="dateNew" placeholder="Fecha de Vencimiento" required="" type="nuevaFechaVencimiento">
+                            <input class="form-control" id="dateNew" placeholder="Fecha de Vencimiento" required="" type="nuevaFechaVencimiento" ng-model="main.regData.expDate">
                             </input>
                         </div>
                     </div>
@@ -49,7 +50,9 @@
             </div>
         </div>
     </div>
+</form>
     <!-- model para modificar item -->
+<form ng-submit="main.editDato(regData);">
     <div class="modal fade" id="item-update" role="dialog">
         <div class="modal-dialog" style="box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
             <div>
@@ -70,20 +73,20 @@
                             <input type="image" id="click" src="imagenes/Image.png" style="width: 312px;" />
                         </div>
                         <div class="form-group col-xs-12">
-                            <textarea class="form-control" id="descriptionUpdate" name="descriptionUpdate" placeholder="Por favor digita aquí la descripción..." rows="2"></textarea>
+                            <textarea class="form-control" id="descriptionUpdate" name="descriptionUpdate" placeholder="Por favor digita aquí la descripción..." rows="2" ng-value="main.title " ng-model="main.regData.title"></textarea>
                         </div>
                         <div class="form-group col-xs-12">
                             <label class="sr-only" for="priceUpdate">
                                 Precio
                             </label>
-                            <input class="form-control" id="priceUpdate" placeholder="Precio" required="" type="precio">
+                            <input class="form-control" id="priceUpdate" placeholder="Precio" required="" type="precio" ng-value="main.price" ng-model="main.regData.price">
                             </input>
                         </div>
                         <div class="form-group col-xs-12">
                             <label class="sr-only" for="dateUpdate">
                                 Fecha de Vencimiento
                             </label>
-                            <input class="form-control" id="dateUpdate" placeholder="Fecha de Vencimiento" required="" type="fechaVencimiento">
+                            <input class="form-control" id="dateUpdate" placeholder="Fecha de Vencimiento" required="" type="fechaVencimiento" ng-value="main.birthDay" ng-model="main.regData.expDate">
                             </input>
                         </div>
                     </div>
@@ -99,7 +102,7 @@
             </div>
         </div>
     </div>
-
+</form>
     <!-- model para enviar a usuario -->
     <div class="modal fade" id="item-message" role="dialog">
         <div class="modal-dialog" style="max-width: 550px; box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
@@ -177,7 +180,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="popular-title">
-                        Promociones<strong class="add-item-space-p"><a data-target="#item-insert" data-toggle="modal" href="#"><i class="fa fa-plus add-item" aria-hidden="true"></i></a></strong>
+                        Promociones<strong class="add-item-space-p"><a  ng-show="log.tipo == 'administrador'"   data-target="#item-insert" data-toggle="modal" href="#"><i class="fa fa-plus add-item" aria-hidden="true"></i></a></strong>
                     </h3>
                 </div>
             </div>
@@ -185,15 +188,16 @@
                 <div class="col" style="height: 15px;">
                 </div>
             </div>
+            <input class="form-control" id="inputSearch" placeholder="Search" type="text" ng-model="searchText">
             <div class="row" ng-controller="mainYuplonCtrl" >
-                <div class="col col-md-3" ng-repeat="post in posts  | pagination: (currentPage - 1) * pageSize | limitTo:pageSize">
+                <div class="col col-md-3" ng-repeat="post in posts | filter:searchText | pagination: (currentPage - 1) * pageSize | limitTo:pageSize">
                     <div class="aditional-info">
                         <ul class="small-event-list">
                             <li>
                                 <div class="row item-options-p"  ng-show="log.tipo == 'administrador'"  ng-show="log.isLoggedIn">
                                     <div class="col-md-12 opt">
                                         <div class="col col-md-4">
-                                            <a data-target="#item-update" data-toggle="modal" href="#"><i class="fa fa-pencil options" aria-hidden="true"></i></a>
+                                            <a  ng-click="main.loadInfoModal(post.titulo, post.precio, post.fechaVencimiento, post.imagen,post._id);" data-target="#item-update" data-toggle="modal" href="#"><i class="fa fa-pencil options" aria-hidden="true"></i></a>
                                         </div>
                                         <div class="col col-md-4">
                                             <a data-target="#item-message" data-toggle="modal" href="#"><i class="fa fa-comments-o options" aria-hidden="true"></i></a>
@@ -206,7 +210,7 @@
                                 <img ng-src="{{post.imagen}}">
                                     <div class="info">
                                         <div class="center-info-p">
-                                            <a ng-click="main.loadInfoModal(post.titulo, post.precio, post.fechaVencimiento, post.imagen);" class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;">
+                                            <a ng-click="main.loadInfoModal(post.titulo, post.precio, post.fechaVencimiento, post.imagen,post._id);" class="title-content" data-target="#item-info" data-toggle="modal" href="#" style="color: #208000; font-weight: 600;">
                                                 {{post.titulo}}
                                             </a>
                                         </div>

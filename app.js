@@ -46,6 +46,14 @@ app.post('/login', usuarioCtrl.signIn)
 app.post('/userLogIn', usuarioCtrl.tokenAuth)
 
 
+/////Registro de datos
+app.post('/registroPromocion', titicuponesCtrl.registerPromocion)
+app.post('/registroCupon', titicuponesCtrl.registerCupon)
+app.post('/editDato', titicuponesCtrl.updateDato)
+
+
+
+
 app.delete('/deleteUser/:title', titicuponesCtrl.deleteDato)
 
 app.post('/private', autentificacion, (req,res) => {

@@ -16,7 +16,8 @@ angular.module('mainController', ['ui.bootstrap'])
 .controller('actionData', function($http,$location,$timeout){
     var app = this;
 	
-	this.loadTitle = function(title){
+	this.loadTitle = function(title,id){
+		
 		this.title = title;
 
 	}
@@ -59,11 +60,71 @@ angular.module('mainController', ['ui.bootstrap'])
 	
 	}
 
-	this.loadInfoModal = function(titulo, precio, fechaVencimiento, imagen){
+	this.loadInfoModal = function(titulo, precio, fechaVencimiento, imagen,id){
+	
+		app.id = id
 		app.title = titulo;
 		app.price = precio;
 		app.birthDay = fechaVencimiento;
 		app.image = imagen;
+	}
+
+
+
+
+	this.registerCupon = function(regData){
+		  
+        $http.post('/registroCupon',this.regData).then(function(data){
+			
+            if(data.data.success){
+               alert(data.data.message);
+            }else{
+                alert(data.data.message); 
+               
+            } 
+			
+        });
+	}
+
+
+	this.registerpromo = function(regData){
+		  
+        $http.post('/registroPromocion',this.regData).then(function(data){
+			
+            if(data.data.success){
+               alert(data.data.message);
+            }else{
+                alert(data.data.message); 
+               
+            } 
+			
+        });
+	}
+
+	this.editDato = function(regData){
+		
+		
+	
+		
+		if (this.regData == undefined){
+			alert("No se realizo ningun cambio")
+		}else{
+			this.regData.id = this.id;
+			
+			$http.post('/editDato',this.regData).then(function(data){
+				
+				if(data.data.success){
+					alert(data.data.message);
+				}else{
+					alert(data.data.message); 
+				
+            	} 
+			
+        	});
+			
+		}
+		
+	 
 	}
     
 })
