@@ -11,7 +11,8 @@ var social = require('./passport/passport')(app, passport)
 
 
 
-
+var nodemailer = require('nodemailer')
+var xoauth2 = require('xoauth2')
 var usuarioCtrl = require('./controllers/usuario')
 var titicuponesCtrl = require('./controllers/datos')
 var autentificacion = require('./middlewares/autentificacion')
@@ -51,8 +52,33 @@ app.post('/registroPromocion', titicuponesCtrl.registerPromocion)
 app.post('/registroCupon', titicuponesCtrl.registerCupon)
 app.post('/editDato', titicuponesCtrl.updateDato)
 
+var transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		xoauth2: xoauth2.createXOAuth2Generator({
+			clientId: '68770455084-5ldgklb9qgdm16vsf891gl7toqgvm641.apps.googleusercontent.com',
+			clientSecrete: 'Ot2f5FKA0-BS_SAJD9VvnC7Y'
+		})
+	}
+})
+var mailOptions = {
+	from : 'andrez96096@gmail.com',
+	to : 'jeurses93@gmail.com',
+	subject: 'Uff ese correo',
+	text : 'papu <3'
+}
 
-
+app.post('/sendEmail',function(req,res){
+	
+	transporter.sendMail(mailOptions,function(err,res){
+		if(err){
+			console.log('Error')
+		}
+		else{
+			console.log('Nice')
+		}
+	})
+})
 
 app.delete('/deleteUser/:title', titicuponesCtrl.deleteDato)
 

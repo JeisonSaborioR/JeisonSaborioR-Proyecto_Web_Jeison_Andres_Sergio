@@ -143,7 +143,7 @@
 
 
     <!-- model para enviar a usuario -->
-    <div class="modal fade" id="item-message" role="dialog">
+    <div class="modal fade" id="item-message" role="dialog" ng-controller="compartirCuponOferta">
         <div class="modal-dialog" style="max-width: 550px; box-shadow: 1px 0px 10px 0px rgba(201,207,201,.4);">
             <div>
                 <div class="modal-header" style="background: rgba(0, 0, 0, .8); max-height: 70px;">
@@ -172,7 +172,7 @@
                 </div>
                 <div class="modal-footer" style="background: rgba(252, 252, 252, .9);">
                     <div class="row" style="margin-right: 5%;">
-                        <input class="register-register" id="submit" name="submit" type="submit" value="Compartir"/>
+                        <button class="register-register" id="submit" name="submit" ng-click="sendEmail()" >Compartir</button>
                         <button class="register-close" data-dismiss="modal" type="button">
                             Cancelar
                         </button>

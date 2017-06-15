@@ -172,4 +172,14 @@ angular.module('mainController', ['ui.bootstrap'])
 
 	
 
+}).controller('compartirCuponOferta',function($scope,$http){
+	
+	$scope.sendEmail = function(){
+		$http.post('/sendEmail',{}).then(function(data){
+			
+		})
+			
+		
+	}
+
 });
