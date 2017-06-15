@@ -72,7 +72,7 @@ app.post('/sendEmail',function(req,res){
 	
 	transporter.sendMail(mailOptions,function(err,res){
 		if(err){
-			console.log('Error')
+			console.log(err)
 		}
 		else{
 			console.log('Nice')

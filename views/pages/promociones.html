@@ -120,11 +120,7 @@
                 <div class="modal-body" style="background: rgba(255, 255, 255, 1);">
                     <div class="row" style="margin: 0 2% 0 2%;">
                         <div class="form-group col-xs-12">
-                            <select class="form-control" name="userList" form="userForm">
-                                <option value="usuarioUno">Usuario Uno</option>
-                                <option value="usuarioDos">Usuario Dos</option>
-                                <option value="usuarioTres">Usuario Tres</option>
-                            </select>
+                           <input class="form-control" id="inputCorreo" placeholder="Digite el correo a compartir el cupon" type="text" ng-model="">
                         </div>
                         <div class="form-group col-xs-12">
                             <textarea class="form-control" id="messageMessage" name="messageMessage" placeholder="Por favor digita aquí tu mensaje..." rows="7"></textarea>
@@ -188,7 +184,16 @@
                 <div class="col" style="height: 15px;">
                 </div>
             </div>
-            <input class="form-control" id="inputSearch" placeholder="Search" type="text" ng-model="searchText">
+            <div class="navbar-form input-group form-group">
+                        <input class="form-control" id="inputSearch" placeholder="Search" type="text" ng-model="searchText">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search">
+                                    </i>
+                                </button>
+                            </div>
+                        </input>
+                    </div>
             <div class="row" ng-controller="mainYuplonCtrl" >
                 <div class="col col-md-3" ng-repeat="post in posts | filter:searchText | pagination: (currentPage - 1) * pageSize | limitTo:pageSize">
                     <div class="aditional-info">
