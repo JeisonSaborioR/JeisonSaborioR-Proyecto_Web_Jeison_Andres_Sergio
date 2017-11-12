@@ -103,9 +103,6 @@ angular.module('mainController', ['ui.bootstrap'])
 
 	this.editDato = function(regData){
 		
-		
-	
-		
 		if (this.regData == undefined){
 			alert("No se realizo ningun cambio")
 		}else{

@@ -145,50 +145,42 @@ function deleteDato(req, res){
 }
 
 
-function updateDato(req, res){ 
+function updateDato(req, res){
+	if(isNaN(req.body.price/1)){
+		res.json({success:false,message:'Fail edit: The price entry contains letters'})
+	} else{
+		Datos.findOne({_id:  req.body.id}, (err,dato) => {
+			if(err) throw err;
 	
-	Datos.findOne({_id:  req.body.id}, (err,dato) => {
-		if(err) throw err;
-
-		if(dato){
-		
-			if(req.body.title != undefined){
-				dato.titulo = req.body.title
-			}
-				
-			if(req.body.price != undefined){
-				dato.precio = req.body.price
-			}
-				
-			if(req.body.expDate != undefined){
-				dato.fechaVencimiento = req.body.expDate
-			}
-				
-				
-			dato.save(function(error){
-				if (error) {
-					res.json({success:false,message:'Fail to save '})
-				}else{
-						
-					res.json({success:false,message:'Successful update!!'})
-
+			if(dato){
+			
+				if(req.body.title != undefined){
+					dato.titulo = req.body.title
+				}
+					
+				if(req.body.price != undefined){
+					dato.precio = req.body.price
+				}
+					
+				if(req.body.expDate != undefined){
+					dato.fechaVencimiento = req.body.expDate
 				}
 	
-			})
-		}else{
-			res.json({success:false,message:'Fail edit'})
-		}
-		
-
-	})
+				dato.save(function(error){
+					if (error) {
+						res.json({success:false,message:'Fail to save '})
+					}else{
+							
+						res.json({success:false,message:'Successful update!!'})
 	
+					}
+				})
+			}else{
+				res.json({success:false,message:'Fail edit'})
+			}
+		})
+	}
 }
-
-
-
-
-
-
 
 module.exports = {
 	getTiticupones,
